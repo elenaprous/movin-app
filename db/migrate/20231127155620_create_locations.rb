@@ -9,7 +9,7 @@ class CreateLocations < ActiveRecord::Migration[7.1]
       t.integer :nightlife_info
       t.integer :restaurants_info
       t.integer :transportation_info
-      t.integer :gym_info
+      t.integer :gyms_info
 
       t.timestamps
     end

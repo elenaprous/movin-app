@@ -3,7 +3,7 @@ class CreateSearches < ActiveRecord::Migration[7.1]
     create_table :searches do |t|
       t.references :user, null: false, foreign_key: true
       t.references :location, null: false, foreign_key: true
-      t.integer :supermarket_score
+      t.integer :supermarkets_score
       t.integer :schools_score
       t.integer :parks_score
       t.integer :nightlife_score

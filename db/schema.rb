@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_27_152915) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_27_162926) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_27_152915) do
     t.integer "nightlife_info"
     t.integer "restaurants_info"
     t.integer "transportation_info"
-    t.integer "gym_info"
+    t.integer "gyms_info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,7 +31,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_27_152915) do
   create_table "searches", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "location_id", null: false
-    t.integer "supermarket_score"
+    t.integer "supermarkets_score"
     t.integer "schools_score"
     t.integer "parks_score"
     t.integer "nightlife_score"
@@ -54,7 +54,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_27_152915) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.string "important_address"
+    t.string "important_addresses"
     t.integer "supermarkets_i"
     t.integer "schools_i"
     t.integer "parks_i"
