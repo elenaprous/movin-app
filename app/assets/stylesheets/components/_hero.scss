@@ -1,0 +1,17 @@
+.hero {
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://images.pexels.com/photos/2856012/pexels-photo-2856012.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  height: 640px;
+  text-align: center;
+  color: white;
+
+  h1 {
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 18px;
+    font-weight: 200;
+  }
+}

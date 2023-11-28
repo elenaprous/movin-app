@@ -1,2 +1,69 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="hero">
+  <%= render "shared/navbar_home" %>
+  <div class="container">
+    <h1>Your honest housing agent</h1>
+    <p>Discover which house is your perfect match.</p>
+    <div>
+      <%#= simple_form_for @search do |f| %>
+        <%#= f.input :address, collection: @activity.available_dates %>
+        <%#= f.button :submit, { class: "btn btn-primary w-100 mt-4", style: "background-color: #E4768A; border: 0;" } %>
+    <%# end %>
+    </div>
+  </div>
+</div>
+<div class="mb-3">
+  <div class="column_grid">
+    <div>
+      <h1>1.8 million</h1>
+      <p>Dutch families don't consider <br> their home to be ideal</p>
+    </div>
+    <div>
+      <p>The housing situation of 1.8 million households in the Netherlands (22%) does not match their preference for owning or renting. For instance, 14% of homeowners would prefer to rent (see Figure 1), representing 8% of the total number of households. Of the tenants in the social housing sector, 31% (8% of the total number of households) would prefer to own. Among private-sector tenants, the figure is as high as 49% (6% of the total). The latter is presumably because rents in the private sector are unsubsidised and relatively high. The fact that buying a home is not a realistic option for some social housing tenants may influence their preferences.</p>
+      <div class="photo_grid_text">
+        <img src="https://images.pexels.com/photos/8316843/pexels-photo-8316843.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Homes with green doors">
+        <img src="https://images.pexels.com/photos/4070983/pexels-photo-4070983.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Home with yellow accents">
+        <img src="https://images.pexels.com/photos/14359830/pexels-photo-14359830.jpeg" alt="Home with arched door">
+      </div>
+    </div>
+  </div>
+  <div class="column_grid" style="padding-top: 0px;">
+    <div>
+      <h1>But...</h1>
+      <p>Finding the perfect place can <br> seem like a mission impossible</p>
+    </div>
+      <p>The housing situation of 1.8 million households in the Netherlands (22%) does not match their preference for owning or renting. For instance, 14% of homeowners would prefer to rent (see Figure 1), representing 8% of the total number of households. Of the tenants in the social housing sector, 31% (8% of the total number of households) would prefer to own. Among private-sector tenants, the figure is as high as 49% (6% of the total). The latter is presumably because rents in the private sector are unsubsidised and relatively high. The fact that buying a home is not a realistic option for some social housing tenants may influence their preferences.</p>
+  </div>
+</div>
+<div class="steps_title">
+  <h1>MOVIN</h1>
+</div>
+<div class="steps_grid">
+  <div>
+    <img src="https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg" alt="Yellow house">
+    <p>Give us an address and your views of the perfect home</p>
+  </div>
+  <div>
+    <img src="https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg" alt="Yellow house">
+    <p>Check out all how that location matches your preferences</p>
+  </div>
+  <div>
+    <img src="https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg" alt="Yellow house">
+    <p>Compare different places and get to the best decision</p>
+  </div>
+</div>
+<div class="column_grid">
+  <div>
+    <h1>Start now</h1>
+    <p>It's quick, easy and free of charge.</p>
+    <% if user_signed_in? %>
+      <%= link_to "Go to my dashboard", bookings_path, class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to "Sign up", new_user_session_path, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="photo_grid">
+      <img src="https://images.unsplash.com/photo-1503594384566-461fe158e797?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Homes with sky">
+      <img src="https://images.unsplash.com/photo-1625825626237-9b9d804f1748?q=80&w=2485&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Amsterdam houses" style="object-position: 50% 24%;">
+      <img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Blue and orange apartment buildings">
+    </div>
+</div>
