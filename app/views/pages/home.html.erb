@@ -58,7 +58,7 @@
     <% if user_signed_in? %>
       <%= link_to "Go to my dashboard", bookings_path, class: "btn btn-primary" %>
     <% else %>
-      <%= link_to "Sign up", new_user_session_path, class: "btn btn-primary" %>
+      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %>
     <% end %>
   </div>
   <div class="photo_grid">
