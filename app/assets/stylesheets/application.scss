@@ -10,3 +10,11 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.btn-primary {
+  background-color: $purple;
+}
+
+.btn-primary:hover {
+  background-color: $dark-purple;
+}

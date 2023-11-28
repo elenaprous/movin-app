@@ -1,2 +1,61 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="hero">
+  <%= render "shared/navbar_home" %>
+  <div class="container">
+    <h1>Your honest housing agent</h1>
+    <p>Discover which house is your perfect match.</p>
+    <div>
+      <%#= simple_form_for @search do |f| %>
+        <%#= f.input :address, collection: @activity.available_dates %>
+        <%#= f.button :submit, { class: "btn btn-primary w-100 mt-4", style: "background-color: #E4768A; border: 0;" } %>
+    <%# end %>
+    </div>
+  </div>
+</div>
+<div class="column_grid">
+  <div>
+    <h1>1.8 million</h1>
+    <p>Dutch families don't consider <br> their home to be ideal</p>
+  </div>
+  <div>
+    <p>The housing situation of 1.8 million households in the Netherlands (22%) does not match their preference for owning or renting. For instance, 14% of homeowners would prefer to rent (see Figure 1), representing 8% of the total number of households. Of the tenants in the social housing sector, 31% (8% of the total number of households) would prefer to own. Among private-sector tenants, the figure is as high as 49% (6% of the total). The latter is presumably because rents in the private sector are unsubsidised and relatively high. The fact that buying a home is not a realistic option for some social housing tenants may influence their preferences.</p>
+    <div class="photo_grid_text">
+      <img src="https://images.pexels.com/photos/8316843/pexels-photo-8316843.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Homes with green doors">
+      <img src="https://images.pexels.com/photos/4070983/pexels-photo-4070983.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Home with yellow accents">
+      <img src="https://images.pexels.com/photos/14359830/pexels-photo-14359830.jpeg" alt="Home with arched door">
+    </div>
+    <p>Thus, assuming equal housing costs, owning a home is more popular than renting one, but there is clear demand for both types of housing. A similar picture emerges when people are asked how much more or less they would be willing to pay in housing costs for renting or owning a home (all housing costs, excluding the repayment part of a mortgage loan). One in four respondents say they would prefer to own a home regardless of cost, while one in six would prefer to rent regardless of cost. For other groups, cost differences are determinative of their housing preferences. Again, younger people in particular say they are willing to pay substantially more to buy the home they want, whereas older people are prepared to accept higher housing costs to rent their home.</p>
+  </div>
+</div>
+<div class="steps_title">
+  <h1>MOVIN</h1>
+</div>
+<div class="steps_grid">
+  <div>
+    <img src="https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg" alt="Yellow house">
+    <p>Give us an address and your views of the perfect home</p>
+  </div>
+  <div>
+    <img src="https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg" alt="Yellow house">
+    <p>Check out all how that location matches your preferences</p>
+  </div>
+  <div>
+    <img src="https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg" alt="Yellow house">
+    <p>Compare different places and get to the best decision</p>
+  </div>
+</div>
+<div class="column_grid">
+  <div>
+    <h1>Start now</h1>
+    <p>It's quick, easy and free of charge.</p>
+    <% if user_signed_in? %>
+      <%= link_to "Go to my dashboard", bookings_path, class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to "Sign up", new_user_session_path, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="photo_grid">
+      <img src="https://images.pexels.com/photos/8316843/pexels-photo-8316843.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Homes with green doors">
+      <img src="https://images.pexels.com/photos/4070983/pexels-photo-4070983.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Home with yellow accents">
+      <img src="https://images.pexels.com/photos/14359830/pexels-photo-14359830.jpeg" alt="Home with arched door">
+    </div>
+</div>
