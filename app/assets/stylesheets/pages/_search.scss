@@ -1,5 +1,26 @@
 // Specific CSS for your home-page
-.pro_cons_map_left {
+.search {
+  background-color: $white;
 
+}
+
+.search_container {
+
+}
+
+.pro_cons_map_left {
   display: flex;
+  flex-direction: row;
+  height: 750px;
+  width: 885px;
+  background-color: #555;
+  border-style: 3px #000;
+}
+
+.pro_cons_map_cards {
+
+}
+
+.pro_cons_map_card {
+
 }
