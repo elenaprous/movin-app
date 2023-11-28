@@ -1,10 +1,6 @@
-class Users::RegistrationsController < Devise::RegistrationsController
+class RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
-
-    if current_user.nil? && params[:address].present?
-      CACHE.write("address", params[:address], expires_in: 15.minutes)
-    end
 
     if CACHE.read("address")
       resource.important_address = CACHE.read("address")

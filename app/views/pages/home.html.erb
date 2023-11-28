@@ -4,7 +4,7 @@
     <h1>Your honest housing agent</h1>
     <p>Discover which house is your perfect match.</p>
     <div class="hero_form">
-      <%= form_tag(new_user_registration_path, method: :get) do -%>
+      <%= form_tag(root_path, method: :get) do -%>
         <%= search_field_tag 'address' %>
         <%= submit_tag 'Save' %>
       <% end -%>
