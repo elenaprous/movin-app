@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [:home, :preferences]
 
   def home
     if current_user.nil? && params[:address].present?
@@ -14,5 +14,8 @@ class PagesController < ApplicationController
   end
 
   def preferences
+    if current_user.nil? && params[:address].present?
+      CACHE.write("address", params[:address], expires_in: 1.hour)
+    end
   end
 end

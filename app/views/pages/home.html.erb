@@ -1,12 +1,12 @@
 <div class="hero">
   <%= render "shared/navbar_home" %>
-  <div class="container justify-content-center">
+  <div class="container justify-content-center mt-5">
     <h1>Your honest housing agent</h1>
     <p>Discover which house is your perfect match.</p>
     <div class="hero_form">
-      <%= form_tag(root_path, method: :get) do -%>
-        <%= search_field_tag 'address' %>
-        <%= submit_tag 'Save' %>
+      <%= form_tag(preferences_path, method: :get) do -%>
+        <%= search_field_tag 'address', nil, class: 'hero_form_field' %>
+        <%= submit_tag 'Search', class: 'hero_form_button' %>
       <% end -%>
     </div>
   </div>
@@ -67,3 +67,4 @@
       <img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Blue and orange apartment buildings">
     </div>
 </div>
+<%= render "layouts/footer" %>
