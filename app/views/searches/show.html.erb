@@ -1,9 +1,12 @@
 <div class="search">
   <%= render "shared/navbar_home" %>
-  <div class ="container mb-3">
-    <div><h1>Address property:</h1></div>
-    <div class="pro_cons_map_left">
-...
+  <div class ="container mb-3 search_container">
+    <div class="pro_cons_title"><h1>Address property:</h1></div>
+    <div class="map-show">
+    <div style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
     <div class="pro_cons_map_cards">
 ...
