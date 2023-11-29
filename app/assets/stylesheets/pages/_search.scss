@@ -1,10 +1,7 @@
 // Specific CSS for your home-page
 .search {
-  // background-color: $white;
+  background-color: $white;
 }
-// #restaurant-icon {
-//   font-size: 2.8em;
-// }
 .search-container {
   display: -webkit-flex;
   display: flex;
@@ -33,15 +30,6 @@
   -webkit-align-self: stretch;
   align-self: stretch;
   border-style: 3px #000 !important;
-}
-
-.pro_cons_map_left {
-  // display: flex;
-  // flex-direction: row;
-  // height: 750px;
-  // width: 885px;
-  // background-color: #555;
-
 }
 
 .cards {
@@ -74,12 +62,6 @@
   align-items: center;
   margin-bottom: 9px;
   border-radius: 5px;
-}
-
-.card-product img {
-  // height: 100%;
-  // width: 120px;
-  // object-fit: cover;
 }
 
 .card-product h2 {
