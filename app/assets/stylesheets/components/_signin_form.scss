@@ -12,10 +12,13 @@
 }
 
 .signin_form {
+  padding: 64px 120px 64px 120px;
+}
+
+.form-action {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  padding: 80px;
+  margin-top: 40px;
 }
 
 .btn-signin {

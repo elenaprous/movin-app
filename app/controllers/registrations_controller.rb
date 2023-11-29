@@ -2,8 +2,8 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
 
-    if CACHE.read("address")
-      resource.important_address = CACHE.read("address")
+    if CACHE.read("important_address")
+      resource.important_address = CACHE.read("important_address")
     end
 
     resource.save
