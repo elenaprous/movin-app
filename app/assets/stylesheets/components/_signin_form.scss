@@ -1,0 +1,32 @@
+.signin_form_block {
+  padding: 64px;
+  display: grid; /* Use grid for nested layout */
+  grid-template-rows: auto auto 1fr auto;
+}
+
+.title {
+  text-align: center;
+  h3 {
+    font-weight: 600;
+  }
+}
+
+.signin_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px;
+}
+
+.btn-signin {
+  background-color: $purple;
+  color: $white;
+  border: 0;
+  width: 240px;
+}
+
+.btn-signin:hover {
+  background-color: $dark-purple;
+  color: $white;
+  border: 0;
+}
