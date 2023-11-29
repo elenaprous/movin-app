@@ -8,4 +8,8 @@ class SearchesController < ApplicationController
       info_window_html: render_to_string(partial: "info_window", locals: {location: location})
     }]
   end
+
+  def index
+    @searches = current_user.searches
+  end
 end
