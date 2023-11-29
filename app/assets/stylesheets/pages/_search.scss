@@ -1,4 +1,7 @@
 // Specific CSS for your home-page
+.text-dark {
+  color: #000;
+}
 .search {
   background-color: $white;
 }
@@ -18,19 +21,12 @@
 }
 
 .pro-cons-title {
-  color: #333 !important;
-  font-size: 16px;
-
-}
-.map-show {
-  -webkit-order: 0;
-  order: 0;
-  -webkit-flex: 3 2 auto;
-  flex: 3 2 auto;
-  -webkit-align-self: stretch;
-  align-self: stretch;
-  border-style: 3px #000 !important;
-}
+  color: #444 !important;
+  font-size: 1.6rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  letter-spacing: 1.6px;
+  }
 
 .cards {
   -webkit-order: 1;
@@ -42,7 +38,7 @@
   margin-bottom: 10px;
 }
 .icon-wrap {
-  width: 86px;
+  width: 85px;
 }
 
 .fa-solid {
@@ -68,6 +64,7 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  letter-spacing: 0.03em;
 }
 
 .card-product p {
@@ -76,8 +73,14 @@
   opacity: .6;
   margin-bottom: 0;
   margin-top: 8px;
+  letter-spacing: 0.02em;
 }
 
 .card-product .card-product-infos {
   padding: 15px;
+}
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
 }
