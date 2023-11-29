@@ -1,0 +1,57 @@
+<div class="onboarding_form">
+  <div class="image_block">
+    <div>
+    <div class="d-flex">
+      <div class="number_circle_done">1</div>
+      <h4 class="mb-5">Give us an address</h4>
+      <div class="done_tag"><p><i>Done!</i></p></div>
+    </div>
+    <div class="d-flex">
+      <div class="number_circle">2</div>
+      <h4 class="mb-5">Now your preferences</h4>
+    </div>
+    <div class="d-flex">
+      <div class="number_circle">3</div>
+      <h4>See if this place is the one!</h4>
+    </div>
+    </div>
+  </div>
+  <div class="form_block">
+    <h3>What makes a home to you?</h3>
+    <div class="form_question mb-5">
+      <h5>Gotta be close to somewhere?</h5>
+      <p>Give us a relevant address to you, like your work or a family member's house.</p>
+      <%= form_tag(new_user_registration_path, method: :get) do -%>
+        <%= search_field_tag 'important_address', nil, class: 'form_field' %>
+    </div>
+    <div class="form_question">
+      <h5>Do you need these nearby?</h5>
+      <p>Rate on a scale of 1 to 5.</p>
+        <div class="options_grid">
+          <div class="option">
+            <p>Supermarkets</p>
+            <%= select_tag 'supermarkets_i', options_for_select(1..5), class: 'form_field' %>
+          </div>
+          <div class="option">
+            <p>Schools</p>
+            <%= select_tag 'schools_i', options_for_select(1..5), class: 'form_field' %>
+          </div>
+        </div>
+        <div class="options_grid">
+          <div class="option">
+            <p>Restaurants</p>
+            <%= select_tag 'restaurants_i', options_for_select(1..5), class: 'form_field' %>
+          </div>
+          <div class="option">
+            <p>Public transport</p>
+            <%= select_tag 'transportation_i', options_for_select(1..5), class: 'form_field' %>
+          </div>
+        </div>
+    </div>
+        <div class="submit">
+          <p>These preferences (and more!) can be changed at any time.</p>
+          <%= submit_tag 'Continue', class: 'btn btn-primary' %>
+        </div>
+      <% end -%>
+  </div>
+</div>

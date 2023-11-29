@@ -5,6 +5,7 @@
   height: 640px;
   text-align: center;
   color: white;
+  justify-content: center;
 
   h1 {
     font-weight: 700;
@@ -14,4 +15,29 @@
     font-size: 18px;
     font-weight: 200;
   }
+}
+
+.hero_form {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.hero_form_field {
+  width: 560px;
+  background-color: rgba($color: $white, $alpha: 0.3);
+  border: 1px solid rgba($color: $light-gray, $alpha: 0.4);
+  border-radius: 2px;
+  font-size: 16px;
+  padding: 4px 12px 4px 12px;
+}
+
+.hero_form_button {
+  background-color: rgba($color: $white, $alpha: 0.3);
+  border: 1px solid rgba($color: $light-gray, $alpha: 0.4);
+  border-radius: 2px;
+  font-size: 16px;
+  color: $white;
+  padding: 4px 12px 4px 12px;
+  margin-left: 8px;
 }
