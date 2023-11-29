@@ -1,25 +1,108 @@
-<h2>Sign up</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+<% if params[:important_addresses].present? %>
+  <div class="onboarding_form">
+  <div class="image_block">
+    <div>
+    <div class="d-flex">
+      <div class="number_circle_done">1</div>
+      <h4 class="mb-5">Give us an address</h4>
+      <div class="done_tag"><p><i>Done!</i></p></div>
+    </div>
+    <div class="d-flex">
+      <div class="number_circle_done">2</div>
+      <h4 class="mb-5">Now your preferences</h4>
+      <div class="done_tag"><p><i>Done!</i></p></div>
+    </div>
+    <div class="d-flex">
+      <div class="number_circle">3</div>
+      <h4>See if this place is the one!</h4>
+    </div>
+    </div>
   </div>
+  <div class="signin_form_block">
+      <div class="title">
+        <h3>Join with an account</h3>
+        <p>Then your preferences will be saved and you can search many other addresses!</p>
+      </div>
+      <div class="signin_form">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+          <div class="form-inputs">
+            <%= f.input :first_name,
+                        required: true,
+                        autofocus: true,
+                        input_html: { class: "form_field" } %>
+            <%= f.input :last_name,
+                        required: true,
+                        autofocus: true,
+                        input_html: { class: "form_field" } %>
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email", class: "form_field" } %>
+            <%= f.input :password,
+                        required: true,
+                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                        input_html: { autocomplete: "new-password", class: "form_field" } %>
+            <%= f.input :password_confirmation,
+                        required: true,
+                        input_html: { autocomplete: "new-password", class: "form_field" } %>
+            <%= f.input :important_addresses, as: :hidden, input_html: { value: params[:important_addresses], class: "form_field" } %>
+            <%= f.input :supermarkets_i, as: :hidden, input_html: { value: params[:supermarkets_i], class: "form_field" } %>
+            <%= f.input :schools_i, as: :hidden, input_html: { value: params[:schools_i], class: "form_field" } %>
+            <%= f.input :restaurants_i, as: :hidden, input_html: { value: params[:restaurants_i], class: "form_field" } %>
+            <%= f.input :transportation_i, as: :hidden, input_html: { value: params[:transportation_i], class: "form_field" } %>
+          </div>
+  <%=  console %>
+    <div class="form-action">
+      <%= f.button :submit, "Sign up", class: 'btn btn-signin' %>
+    </div>
+  <% end %>
+      </div>
+  </div>
+</div>
+
+<% else %>
+  <div class="onboarding_form">
+    <div class="signin_image_block">
+      <h1>MOVIN</h1>
+    </div>
+    <div class="signin_form_block">
+        <div class="title">
+          <h3>Join with an account</h3>
+          <p>Then your preferences will be saved and you can search many other addresses!</p>
+        </div>
+        <div class="signin_form">
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= f.error_notification %>
+
+            <div class="form-inputs">
+              <%= f.input :first_name,
+                          required: true,
+                          autofocus: true,
+                          input_html: { class: "form_field" } %>
+              <%= f.input :last_name,
+                          required: true,
+                          autofocus: true,
+                          input_html: { class: "form_field" } %>
+              <%= f.input :email,
+                          required: true,
+                          autofocus: true,
+                          input_html: { autocomplete: "email", class: "form_field" } %>
+              <%= f.input :password,
+                          required: true,
+                          hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                          input_html: { autocomplete: "new-password", class: "form_field" } %>
+              <%= f.input :password_confirmation,
+                          required: true,
+                          input_html: { autocomplete: "new-password", class: "form_field" } %>
+            </div>
+
+      <div class="form-action">
+        <%= f.button :submit, "Sign up", class: 'btn btn-signin' %>
+      </div>
+    <% end %>
+        </div>
+    </div>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>

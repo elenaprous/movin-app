@@ -4,7 +4,8 @@ class SearchesController < ApplicationController
 
     @markers = [{
       lat: @search.location.latitude,
-      lng: @search.location.longitude
+      lng: @search.location.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: {location: location})
     }]
   end
 
