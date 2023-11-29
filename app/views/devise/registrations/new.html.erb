@@ -48,8 +48,12 @@
                         required: true,
                         input_html: { autocomplete: "new-password", class: "form_field" } %>
             <%= f.input :important_addresses, as: :hidden, input_html: { value: params[:important_addresses], class: "form_field" } %>
+            <%= f.input :supermarkets_i, as: :hidden, input_html: { value: params[:supermarkets_i], class: "form_field" } %>
+            <%= f.input :schools_i, as: :hidden, input_html: { value: params[:schools_i], class: "form_field" } %>
+            <%= f.input :restaurants_i, as: :hidden, input_html: { value: params[:restaurants_i], class: "form_field" } %>
+            <%= f.input :transportation_i, as: :hidden, input_html: { value: params[:transportation_i], class: "form_field" } %>
           </div>
-
+  <%=  console %>
     <div class="form-action">
       <%= f.button :submit, "Sign up", class: 'btn btn-signin' %>
     </div>

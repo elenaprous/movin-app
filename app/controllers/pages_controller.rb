@@ -14,5 +14,11 @@ class PagesController < ApplicationController
   end
 
   def preferences
+    if params[:address].present?
+      unless Location.find_by(address: params["address"])
+      location = Location.create(address: params["address"])
+      session[:location_id] = location.id
+      end
+    end
   end
 end
