@@ -25,3 +25,5 @@ Location.all.each do |location|
   location.save!
 end
 
+# user = User.create!(email: "admin@gmail.com", encrypted_password: "123456", first_name: "Peter", last_name: "Green")
+# Search.create!(user_id: user.id, location_id: 25,)
