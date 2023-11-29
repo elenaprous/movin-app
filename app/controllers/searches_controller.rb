@@ -7,4 +7,8 @@ class SearchesController < ApplicationController
       lng: @search.location.longitude
     }]
   end
+
+  def index
+    @searches = current_user.searches
+  end
 end
