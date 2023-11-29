@@ -2,11 +2,9 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
 
-    if CACHE.read("address")
-      resource.important_address = CACHE.read("address")
-    end
 
     resource.save
+    Search.create(user_id: resource.id, location_id: session[:location_id])
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?

@@ -14,12 +14,11 @@ class PagesController < ApplicationController
   end
 
   def preferences
-    if current_user.nil? && params[:important_address].present? && params[:supermarkets_i] && params[:schools_i] && params[:restaurants_i] && params[:transportation_i]
-      CACHE.write("important_address", params[:important_address], expires_in: 1.hour)
-      CACHE.write("supermarkets_i", params[:supermarkets_i], expires_in: 1.hour)
-      CACHE.write("schools_i", params[:schools_i], expires_in: 1.hour)
-      CACHE.write("restaurants_i", params[:restaurants_i], expires_in: 1.hour)
-      CACHE.write("transportation_i", params[:transportation_i], expires_in: 1.hour)
+    if params[:address].present?
+      unless Location.find_by(address: params["address"])
+      location = Location.create(address: params["address"])
+      session[:location_id] = location.id
+      end
     end
   end
 end
