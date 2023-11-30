@@ -1,7 +1,7 @@
 <div class="navbar-home text-dark">
   <h4>MOVIN</h4>
   <% if user_signed_in? %>
-        <%= link_to "My dashboard", searches_path, class: "my-auto" %>
+        <%= link_to "my dashboard", searches_path, class: "my-auto" %>
       <% else %>
         <%= link_to "Login", new_user_session_path, class: "link" %>
       <% end %>
