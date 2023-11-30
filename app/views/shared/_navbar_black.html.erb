@@ -1,5 +1,7 @@
 <div class="navbar-home text-dark">
-  <h4>MOVIN</h4>
+  <%= link_to root_path, class: "my-auto" do %>
+    <h4>MOVIN</h4>
+  <% end %>
   <% if user_signed_in? %>
     <div>
       <%= link_to root_path, class: "my-auto" do %>
