@@ -64,13 +64,12 @@
 
 <% else %>
   <div class="onboarding_form">
-    <div class="signin_image_block">
-      <h1>MOVIN</h1>
+    <div class="signup_image_block">
     </div>
     <div class="signin_form_block">
         <div class="title">
           <h3>Join with an account</h3>
-          <p>Then your preferences will be saved and you can search many other addresses!</p>
+          <p>Then you can set preferences and search many other addresses!</p>
         </div>
         <div class="signin_form">
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -98,10 +97,13 @@
                           input_html: { autocomplete: "new-password", class: "form_field" } %>
             </div>
 
-      <div class="form-action">
-        <%= f.button :submit, "Sign up", class: 'btn btn-signin' %>
-      </div>
-    <% end %>
+            <div class="form-action">
+              <%= f.button :submit, "Sign up", class: 'btn btn-signin' %>
+            </div>
+          <% end %>
+          <div class="div_links">
+            <%= render "devise/shared/links" %>
+          </div>
         </div>
     </div>
   </div>
