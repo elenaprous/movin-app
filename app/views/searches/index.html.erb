@@ -49,4 +49,7 @@
       <div class="fa-solid"><i class="fa-regular fa-heart"></i></div>
 </div>
 </div>
+<div class="d-flex justify-content-center">
+  <%= link_to "Log out", destroy_user_session_path, class: "btn btn-outline-danger mt-2", data: {turbo_method: :delete} %>
+</div>
 <%= render "layouts/footer" %>

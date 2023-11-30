@@ -7,9 +7,9 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
 
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :important_addresses,
-      :supermarkets_i, :schools_i, :parks_i, :nightlife_i, :restaurants_i, :transportation_i, :gyms_i])
+      :supermarkets_score, :schools_score, :parks_score, :nightlife_score, :restaurants_score, :transportation_score, :gyms_score])
 
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :important_addresses,
-      :supermarkets_i, :schools_i, :parks_i, :nightlife_i, :restaurants_i, :transportation_i, :gyms_i])
+      :supermarkets_score, :schools_score, :parks_score, :nightlife_score, :restaurants_score, :transportation_score, :gyms_score])
   end
 end
