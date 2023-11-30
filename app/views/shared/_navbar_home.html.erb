@@ -1,4 +1,10 @@
 <div class="navbar-home text-white">
   <h4>MOVIN</h4>
-  <%= link_to "Login", new_user_session_path, class: "link" %>
+    <% if user_signed_in? %>
+    <%= link_to "Home", root_path, class: "my-auto text-white mx-2" %>
+    <%= link_to "My dashboard", searches_path, class: "my-auto text-white" %>
+  <% else %>
+    <%= link_to "Home", root_path, class: "my-auto text-white mx-2" %>
+    <%= link_to "Login", new_user_session_path, class: "my-auto text-white" %>
+  <% end %>
 </div>
