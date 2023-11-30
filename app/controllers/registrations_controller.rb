@@ -23,7 +23,7 @@ class RegistrationsController < Devise::RegistrationsController
       clean_up_passwords resource
       set_minimum_password_length
       if params[:user][:important_addresses]
-        redirect_to new_user_registration_path(important_addresses: params[:user][:important_addresses], supermarkets_i: params[:supermarkets_i], ), alert: resource.errors.full_messages.join(', ')
+        redirect_to new_user_registration_path(important_addresses: params[:user][:important_addresses], supermarkets_score: params[:supermarkets_score], ), alert: resource.errors.full_messages.join(', ')
       else
         respond_with resource
       end
