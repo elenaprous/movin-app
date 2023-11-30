@@ -1,22 +1,22 @@
 <div class="navbar-home text-dark">
   <h4>MOVIN</h4>
   <% if user_signed_in? %>
-  <div>
-    <%= link_to root_path, class: "my-auto mx-2" do %>
-    <%# <i class="home-icon"></i> %>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-    Home
-    <% end %>
-    <%= link_to searches_path, class: "my-auto mx-2" do %>
-    <%# <i class="fa-regular fa-user"></i> %>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-    My dashboard
-    <% end %>
+    <div>
+      <%= link_to root_path, class: "my-auto" do %>
+        <div class="nav-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          Home
+        <% end %>
+        <%= link_to searches_path, class: "my-auto" do %>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          My dashboard
+        </div>
+      <% end %>
     </div>
   <% else %>
-  <div>
-    <%= link_to "Home", root_path, class: "my-auto mx-2" %>
-    <%= link_to "Login", new_user_session_path, class: "my-auto mx-2" %>
-  </div>
+    <div>
+      <%= link_to "Home", root_path, class: "my-auto" %>
+      <%= link_to "Login", new_user_session_path, class: "my-auto" %>
+    </div>
   <% end %>
 </div>
