@@ -1,15 +1,57 @@
 <div class="search">
-  <%= render "shared/navbar_home" %>
-  <div class ="container mb-3 search_container">
-    <div class="pro_cons_title"><h1>Address property:</h1></div>
+  <%= render "shared/navbar_black" %>
+  <div class="container pro-cons-title">
+    <h1>Ijsbaanpad 12 1012 DE Amsterdam</h1>
+  </div>
+  <div class ="container search-container">
     <div class="map-show">
-    <div style="width: 100%; height: 600px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      <div style="width: 100%; height: 450px;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
-    <div class="pro_cons_map_cards">
-...
+    <div class="cards">
+      <div class="card-product row">
+        <i class="fa-solid fa-graduation-cap col-2" id="restaurant-icon"></i>
+        <div class="card-product-infos col-10">
+          <h2>Restaurants in the area</h2>
+          <p>Lorem ipsum dolor sit amet <strong>consectetur adipisicing</strong> elit. Nostrum ab nesciunt illum excepturi, praesentium sed, eaque ea laudantium quae totam tenetur non consequuntur asperiores corrupti error voluptate, a incidunt cum.</p>
+        </div>
+      </div>
+      <div class="card-product row">
+        <i class="fa-solid fa-utensils col-2"></i>
+        <div class="card-product-infos col-10">
+          <h2>Restaurants in the area</h2>
+          <p>Lorem ipsum dolor sit amet <strong>consectetur adipisicing</strong> elit. Nostrum ab nesciunt illum excepturi, praesentium sed, eaque ea laudantium quae totam tenetur non consequuntur asperiores corrupti error voluptate, a incidunt cum.</p>
+        </div>
+      </div>
+      <div class="card-product row">
+        <i class="fa-solid fa-car col-2"></i>
+        <div class="card-product-infos col-10">
+          <h2>Parking</h2>
+          <p>Lorem ipsum dolor sit amet <strong>consectetur adipisicing</strong> elit. Nostrum ab nesciunt illum excepturi, praesentium sed, eaque ea laudantium quae totam tenetur non consequuntur asperiores corrupti error voluptate, a incidunt cum.</p>
+        </div>
+      </div>
+      <div class="card-product row">
+        <i class="fa-solid fa-tree col-2"></i>
+        <div class="card-product-infos col-10">
+          <h2>Nature</h2>
+          <p>Lorem ipsum dolor sit amet <strong>consectetur adipisicing</strong> elit. Nostrum ab nesciunt illum excepturi, praesentium sed, eaque ea laudantium quae totam tenetur non consequuntur asperiores corrupti error voluptate, a incidunt cum.</p>
+        </div>
+      </div>
+      <div class="card-product row">
+        <i class="fa-solid fa-train-subway col-2"></i>
+        <div class="card-product-infos col-10">
+          <h2>Travel to work</h2>
+          <p>Lorem ipsum dolor sit amet <strong>consectetur adipisicing</strong> elit. Nostrum ab nesciunt illum excepturi, praesentium sed, eaque ea laudantium quae totam tenetur non consequuntur asperiores corrupti error voluptate, a incidunt cum.</p>
+        </div>
+      </div>
+      <div class="card-product row">
+        <i class="fa-solid fa-person-breastfeeding col-2"></i>
+        <div class="card-product-infos col-10">
+          <h2>Close to mother</h2>
+          <p>Lorem ipsum dolor sit amet <strong>consectetur adipisicing</strong> elit. Nostrum ab nesciunt illum excepturi, praesentium sed, eaque ea laudantium quae totam tenetur non consequuntur asperiores corrupti error voluptate, a incidunt cum.</p>
+        </div>
+      </div>
     </div>
   </div>
-</div>
