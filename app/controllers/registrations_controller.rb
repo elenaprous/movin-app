@@ -22,7 +22,11 @@ class RegistrationsController < Devise::RegistrationsController
     else
       clean_up_passwords resource
       set_minimum_password_length
-      respond_with resource
+      if params[:user][:important_addresses]
+        redirect_to new_user_registration_path(important_addresses: params[:user][:important_addresses], supermarkets_i: params[:supermarkets_i], ), alert: resource.errors.full_messages.join(', ')
+      else
+        respond_with resource
+      end
     end
   end
 end
