@@ -56,7 +56,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_132917) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.string "important_addresses"
+    t.string "important_address"
     t.integer "supermarkets_score"
     t.integer "schools_score"
     t.integer "parks_score"
