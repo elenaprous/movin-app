@@ -24,25 +24,26 @@ Location.create!(address: "Arie Biemondstraat 111, 1054 PD Amsterdam")
 Location.create!(address: "Roetersstraat 170, 1018 WE Amsterdam")
 Location.create!(address: "Dijksgracht 6, 1019 BS Amsterdam")
 
-user = User.create!(email: "admin@gmail.com", password: "123456", first_name: "Peter", last_name: "Green", supermarkets_i: 1, restaurants_i: 2, schools_i: 5, transportation_i: 3)
+user = User.create!(email: "admin@gmail.com", password: "123456", first_name: "Peter", last_name: "Green", supermarkets_score: 1, restaurants_score: 2, schools_score: 5, transportation_score: 3)
 
 Location.all.each do |location|
   places = HTTParty.get("https://api.tomtom.com/search/2/nearbySearch/.json\?key\=#{ENV["TOM_TOM_KEY"]}\&lat\=#{location.latitude}\&lon\=#{location.longitude}\&radius\=1000\&limit\=100")["results"]
   supermarket_count = places.count { |place| place["poi"]["categories"].include?("shop")}
-  location.supermarkets_info = supermarket_count
+  location.supermarkets_score = supermarket_count
 
   school_count = places.count { |place| place["poi"]["categories"].include?("school")}
-  location.schools_info = school_count
+  location.schools_score = school_count
 
   restaurant_count = places.count { |place| place["poi"]["categories"].include?("restaurant")}
-  location.restaurants_info = restaurant_count
+  location.restaurants_score = restaurant_count
 
   public_transport_count = places.count { |place| place["poi"]["categories"].include?("public transport stop")}
-  location.transportation_info = public_transport_count
+  location.transportation_score = public_transport_count
 
-  location.compute_score
+  location.compute_score!
 
   location.save!
-end
 
-# Search.create!(user_id: user.id, location_id: Location.last.id, supermarkets_score: )
+  search = Search.create!(user_id: user.id, location_id: location.id)
+  search.compute_score!
+end
