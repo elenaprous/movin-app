@@ -1,28 +1,42 @@
+<%= render "shared/navbar_black" %>
 <div class="search">
-  <%= render "shared/navbar_black" %>
-  <div class="container pro-cons-title">
-    <h1>Ijsbaanpad 12 1012 DE Amsterdam</h1>
+  <div class="pro-cons-title">
+    <h2><%= @search.location.address %></h2>
+    <h4>1012 DE Amsterdam</h4>
   </div>
-  <div class ="container search-container">
+  <div class ="map_card_grid">
     <div class="map-show">
       <div style="width: 100%; height: 450px;"
             data-controller="map"
             data-map-markers-value="<%= @markers.to_json %>"
             data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
+
     <div class="cards">
-      <div class="card-product row">
+      <div class="card-product pro row">
         <i class="fa-solid fa-graduation-cap col-2"></i>
         <div class="card-product-infos col-10">
-          <h2>Restaurants in the area</h2>
-          <p>Lorem ipsum dolor sit amet <strong>consectetur adipisicing</strong> elit. Nostrum ab nesciunt illum excepturi, praesentium sed, eaque ea laudantium quae totam tenetur non consequuntur asperiores corrupti error voluptate, a incidunt cum.</p>
+          <h2>Restaurants</h2>
+          <% if @search.restaurants_score > 0 %>
+            <p>There are lots of restaurants around this place. Sweet!</p>
+          <% elsif @search.restaurants_score == 0 %>
+            <p>There are some restaurants around.</p>
+          <% else %>
+            <p>There are no restaurants in the area.</p>
+          <% end %>
         </div>
       </div>
-      <div class="card-product row">
+      <div class="card-product con row">
         <i class="fa-solid fa-utensils col-2"></i>
         <div class="card-product-infos col-10">
-          <h2>Restaurants in the area</h2>
-          <p>Lorem ipsum dolor sit amet <strong>consectetur adipisicing</strong> elit. Nostrum ab nesciunt illum excepturi, praesentium sed, eaque ea laudantium quae totam tenetur non consequuntur asperiores corrupti error voluptate, a incidunt cum.</p>
+          <h2>Supermarkets</h2>
+          <% if @search.supermarkets_score > 0 %>
+            <p>Great! There are grocery stores nearby.</p>
+          <% elsif @search.restaurants_score == 0 %>
+            <p>There are not many grocery stores.</p>
+          <% else %>
+            <p>No grocery stores around.</p>
+          <% end %>
         </div>
       </div>
       <div class="card-product row">
@@ -55,4 +69,5 @@
       </div>
     </div>
   </div>
-  <%= render "layouts/footer" %>
+</div>
+<%= render "layouts/footer" %>
