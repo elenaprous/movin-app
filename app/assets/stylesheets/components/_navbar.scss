@@ -2,28 +2,21 @@
   display: flex;
   justify-content: space-between;
   padding: 48px 64px 48px 64px;
-  color: $white;
 
-h4 {
-  font-weight: 200;
-}
-}
-
-.navbar-black {
-  color: black !important;
-
+  a {
+    color: #fff;
+  }
   h4 {
     font-weight: 200;
   }
 }
 
-// .link-icon {
-//   font-size: 0.8em !important;
-//   // padding: 5px 15px 0px 0px;
-//   color: red !important;
-//   max-width: 10px;
-//   max-height: 10px;
-// }
+.navbar-home.text-dark {
+  a {
+    color: black;
+  }
+}
+
 .nav-icon {
   color: #333;
 }
@@ -35,13 +28,13 @@ h4 {
 
 .my-auto {
   justify-content: flex-end;
-  color: #333;
+  // color: #333;
   text-decoration: none;
   font-size: 15px;
   font-weight: 200;
 }
 .my-auto:hover {
-  color: black;
+  // color: black;
   font-size: 15px;
   font-weight: 200;
 }
