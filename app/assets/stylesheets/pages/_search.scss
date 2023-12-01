@@ -71,14 +71,25 @@
 }
 
 .card-product {
+  display: flex;
+  justify-content: space-between;
   overflow: hidden;
   height: 120px;
   background: transparent;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  display: flex;
   align-items: center;
   margin-bottom: 9px;
   border-radius: 5px;
+
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: #555;
+  }
 }
 
 .card-product h2 {
@@ -86,6 +97,7 @@
   font-weight: bold;
   margin: 0;
   letter-spacing: 0.03em;
+  text-decoration: none;
 }
 
 .card-product p {
@@ -95,6 +107,7 @@
   margin-bottom: 0;
   margin-top: 8px;
   letter-spacing: 0.02em;
+  text-decoration: none;
 }
 
 .card-product .card-product-infos {
