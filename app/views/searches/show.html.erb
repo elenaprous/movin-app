@@ -5,17 +5,15 @@
     <h4>1012 DE Amsterdam</h4>
   </div>
   <div class ="map_card_grid">
-    <div class="map-show">
-      <div style="width: 100%; height: 450px;"
-            data-controller="map"
-            data-map-markers-value="<%= @markers.to_json %>"
-            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    <div class="map-show"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-
     <div class="cards">
       <div class="<%= @search.restaurants_score > 3 ? "card-product pro row" : @search.restaurants_score <= 3 && @search.restaurants_score > -3 ? "card-product row" : "card-product con row"%>">
-        <i class="fa-solid fa-utensils col-2"></i>
-        <div class="card-product-infos col-10">
+        <i class="fa-solid fa-utensils"></i>
+        <div>
           <h2>Restaurants</h2>
           <% if @search.restaurants_score > 3 %>
             <p>There are lots of restaurants around this place. Sweet!</p>
@@ -27,8 +25,8 @@
         </div>
       </div>
       <div class="<%= @search.supermarkets_score > 3 ? "card-product pro row" : @search.supermarkets_score <= 3 && @search.supermarkets_score > -3 ? "card-product row" : "card-product con row"%>">
-        <i class="fa-solid fa-cart-shopping col-2"></i>
-        <div class="card-product-infos col-10">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <div>
           <h2>Supermarkets</h2>
           <% if @search.supermarkets_score > 3 %>
             <p>Great! There are grocery stores nearby.</p>
@@ -40,8 +38,8 @@
         </div>
       </div>
       <div class="<%= @search.schools_score > 3 ? "card-product pro row" : @search.schools_score <= 3 && @search.schools_score > -3 ? "card-product row" : "card-product con row"%>">
-        <i class="fa-solid fa-pencil col-2"></i>
-        <div class="card-product-infos col-10">
+        <i class="fa-solid fa-pencil"></i>
+        <div>
           <h2>Schools</h2>
           <% if @search.schools_score > 3 %>
             <p>Many schools nearby, how lucky!</p>
@@ -53,8 +51,8 @@
         </div>
       </div>
       <div class="<%= @search.parks_score > 3 ? "card-product pro row" : @search.parks_score <= 3 && @search.parks_score > -3 ? "card-product row" : "card-product con row"%>">
-        <i class="fa-solid fa-tree col-2"></i>
-        <div class="card-product-infos col-10">
+        <i class="fa-solid fa-tree"></i>
+        <div>
           <h2>Parks</h2>
           <% if @search.parks_score > 3 %>
             <p>A lot of parks around. Nature time!</p>
@@ -66,8 +64,8 @@
         </div>
       </div>
       <div class="<%= @search.nightlife_score > 3 ? "card-product pro row" : @search.nightlife_score <= 3 && @search.nightlife_score > -3 ? "card-product row" : "card-product con row"%>">
-        <i class="fa-solid fa-train-subway col-2"></i>
-        <div class="card-product-infos col-10">
+        <i class="fa-solid fa-moon"></i>
+        <div>
           <h2>Nightlife</h2>
           <% if @search.nightlife_score > 3 %>
             <p>Lots of fun options here!</p>
@@ -79,8 +77,8 @@
         </div>
       </div>
       <div class="<%= @search.transportation_score > 3 ? "card-product pro row" : @search.transportation_score <= 3 && @search.transportation_score > -3 ? "card-product row" : "card-product con row"%>">
-        <i class="fa-solid fa-train-subway col-2"></i>
-        <div class="card-product-infos col-10">
+        <i class="fa-solid fa-train-subway"></i>
+        <div>
           <h2>Public transportation</h2>
           <% if @search.transportation_score > 3 %>
             <p>Lots of options, you can get where you need!</p>
