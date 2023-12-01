@@ -20,6 +20,6 @@ class SearchesController < ApplicationController
   end
 
   def index
-    @searches = current_user.searches
+    @searches = current_user.searches.order(ranking: :desc)
   end
 end
