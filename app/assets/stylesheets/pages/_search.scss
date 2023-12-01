@@ -1,5 +1,5 @@
 .search {
-  padding: 0px 80px 24px 80px;
+  padding: 0px 80px 40px 80px;
 }
 
 .map_card_grid {
@@ -17,7 +17,7 @@
   h4 {
     color: gray;
   }
-  }
+}
 
 .cards {
   display: flex;
@@ -25,14 +25,27 @@
   gap: 16px;
 }
 
-.card-product {
+.card-score {
   display: grid;
   grid-template-columns: 1fr 4fr;
-  padding: 20px;
+  padding: 22px;
   background-color: $white;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   border-radius: 4px;
   align-items: center;
+
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  p {
+    font-size: 16px;
+    color: $dark-gray;
+    margin-top: 8px;
+    margin-bottom: 0;
+  }
 
   div {
     padding: 0;
@@ -40,11 +53,12 @@
 }
 
 .pro {
-  border: 1px solid $green;
+  border: 2px solid $green;
+  box-shadow: 0 0 5px rgba(48,195,80,0.5);
 }
 
 .con {
-  border: 1px solid $red;
+  border: 2px solid $red;
 }
 
 .fa-solid {
@@ -53,21 +67,38 @@
   max-width: 54px;
   max-height: 85px;
   padding: 0;
-  margin-left: 8px;
+  margin-left: 6px;
 }
 
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: transparent;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 9px;
+  border-radius: 5px;
+}
 
 .card-product h2 {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: bold;
   margin: 0;
+  letter-spacing: 0.03em;
 }
 
 .card-product p {
-  font-size: 16px;
-  color: $dark-gray;
-  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .6;
   margin-bottom: 0;
+  margin-top: 8px;
+  letter-spacing: 0.02em;
+}
+
+.card-product .card-product-infos {
+  padding: 15px;
 }
 
 .card-product img {

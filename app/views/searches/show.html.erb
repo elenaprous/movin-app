@@ -2,7 +2,7 @@
 <div class="search">
   <div class="pro-cons-title">
     <h2><%= @search.location.address %></h2>
-    <h4>1012 DE Amsterdam</h4>
+    <h4>1012 DE Amsterdam*</h4>
   </div>
   <div class ="map_card_grid">
     <div class="map-show"
@@ -11,7 +11,7 @@
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
     <div class="cards">
-      <div class="<%= @search.restaurants_score > 3 ? "card-product pro row" : @search.restaurants_score <= 3 && @search.restaurants_score > -3 ? "card-product row" : "card-product con row"%>">
+      <div class="<%= @search.restaurants_score > 3 ? "card-score pro row" : @search.restaurants_score <= 3 && @search.restaurants_score > -3 ? "card-score row" : "card-score con row"%>">
         <i class="fa-solid fa-utensils"></i>
         <div>
           <h2>Restaurants</h2>
@@ -24,7 +24,7 @@
           <% end %>
         </div>
       </div>
-      <div class="<%= @search.supermarkets_score > 3 ? "card-product pro row" : @search.supermarkets_score <= 3 && @search.supermarkets_score > -3 ? "card-product row" : "card-product con row"%>">
+      <div class="<%= @search.supermarkets_score > 3 ? "card-score pro row" : @search.supermarkets_score <= 3 && @search.supermarkets_score > -3 ? "card-score row" : "card-score con row"%>">
         <i class="fa-solid fa-cart-shopping"></i>
         <div>
           <h2>Supermarkets</h2>
@@ -37,7 +37,7 @@
           <% end %>
         </div>
       </div>
-      <div class="<%= @search.schools_score > 3 ? "card-product pro row" : @search.schools_score <= 3 && @search.schools_score > -3 ? "card-product row" : "card-product con row"%>">
+      <div class="<%= @search.schools_score > 3 ? "card-score pro row" : @search.schools_score <= 3 && @search.schools_score > -3 ? "card-score row" : "card-score con row"%>">
         <i class="fa-solid fa-pencil"></i>
         <div>
           <h2>Schools</h2>
@@ -50,7 +50,7 @@
           <% end %>
         </div>
       </div>
-      <div class="<%= @search.parks_score > 3 ? "card-product pro row" : @search.parks_score <= 3 && @search.parks_score > -3 ? "card-product row" : "card-product con row"%>">
+      <div class="<%= @search.parks_score > 3 ? "card-score pro row" : @search.parks_score < -3 ? "card-score con row" : "card-score row"%>">
         <i class="fa-solid fa-tree"></i>
         <div>
           <h2>Parks</h2>
@@ -63,7 +63,7 @@
           <% end %>
         </div>
       </div>
-      <div class="<%= @search.nightlife_score > 3 ? "card-product pro row" : @search.nightlife_score <= 3 && @search.nightlife_score > -3 ? "card-product row" : "card-product con row"%>">
+      <div class="<%= @search.nightlife_score > 3 ? "card-score pro row" : @search.nightlife_score <= 3 && @search.nightlife_score > -3 ? "card-score row" : "card-score con row"%>">
         <i class="fa-solid fa-moon"></i>
         <div>
           <h2>Nightlife</h2>
@@ -76,7 +76,7 @@
           <% end %>
         </div>
       </div>
-      <div class="<%= @search.transportation_score > 3 ? "card-product pro row" : @search.transportation_score <= 3 && @search.transportation_score > -3 ? "card-product row" : "card-product con row"%>">
+      <div class="<%= @search.transportation_score > 3 ? "card-score pro row" : @search.transportation_score <= 3 && @search.transportation_score > -3 ? "card-score row" : "card-score con row"%>">
         <i class="fa-solid fa-train-subway"></i>
         <div>
           <h2>Public transportation</h2>
