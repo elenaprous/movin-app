@@ -1,8 +1,8 @@
-  <%= render "shared/navbar_black" %>
+<%= render "shared/navbar_black" %>
 <div class="index">
-<% @searches.each do |search| %>
-<%= render "index_card", search: search %>
-<% end %>
+  <% @searches.each do |search| %>
+    <%= render "index_card", search: search %>
+  <% end %>
 </div>
 <div class="d-flex justify-content-center">
   <%= link_to "Log out", destroy_user_session_path, class: "btn btn-outline-danger mt-2 mb-5", data: {turbo_method: :delete} %>
