@@ -4,10 +4,21 @@
     <h1>Your honest housing agent</h1>
     <p>Discover which house is your perfect match.</p>
     <div class="hero_form">
+
+      <%= form_with url: preferences_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "hero_form_field",
+              placeholder: "Search activities"
+          %>
+          <%= submit_tag "Search", class: "hero_form_button" %>
+        <% end %>
+
       <%= form_tag(preferences_path, method: :get, data: { turbo:false }) do -%>
         <%= search_field_tag 'address', nil, class: 'hero_form_field' %>
         <%= submit_tag 'Search', class: 'hero_form_button' %>
       <% end -%>
+      
     </div>
   </div>
 </div>

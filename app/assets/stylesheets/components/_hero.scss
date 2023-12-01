@@ -32,6 +32,14 @@
   padding: 4px 12px 4px 12px;
 }
 
+.hero_form_field::placeholder {
+  color: $white;
+}
+
+.input {
+  color: $white;
+}
+
 .hero_form_button {
   background-color: rgba($color: $white, $alpha: 0.3);
   border: 1px solid rgba($color: $light-gray, $alpha: 0.4);
