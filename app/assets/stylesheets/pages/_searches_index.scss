@@ -1,0 +1,14 @@
+.index-title {
+  color:          #333;
+  display:          flex;
+  justify-content:  start;
+
+  h6 {
+    color: #777;
+}
+}
+
+.index {
+  min-height: calc(100vh - 328px);
+  padding-bottom: 20px;
+}
