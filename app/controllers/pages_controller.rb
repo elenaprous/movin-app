@@ -5,11 +5,9 @@ class PagesController < ApplicationController
   end
 
   def preferences
-    if params[:address].present?
-      # unless Location.find_by(address: params[:query])
-      #   location = Location.create(address: params[:query])
-      unless Location.find_by(address: params[:address])
-        location = Location.create(address: params[:address])
+    if params[:query].present?
+      unless Location.find_by(address: params[:query])
+        location = Location.create(address: params[:query])
         session[:location_id] = location.id
         places = HTTParty.get("https://api.tomtom.com/search/2/nearbySearch/.json\?key\=#{ENV["TOM_TOM_KEY"]}\&lat\=#{location.latitude}\&lon\=#{location.longitude}\&radius\=500\&limit\=100")["results"]
         supermarket_count = places.count { |place| place["poi"]["categories"].include?("shop") }
