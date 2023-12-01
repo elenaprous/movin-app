@@ -1,10 +1,15 @@
   <%= render "shared/navbar_black" %>
 <div class="index">
+  <div class="container index-title mb-2">
+    <div><h2>Your properties</h2>
+    <h6>Discover which house is your perfect match.</h6></div>
+  </div>
 <% @searches.each do |search| %>
 <%= render "index_card", search: search %>
 <% end %>
-</div>
-<div class="d-flex justify-content-center">
-  <%= link_to "Log out", destroy_user_session_path, class: "btn btn-outline-danger mt-2 mb-5", data: {turbo_method: :delete} %>
+
+  <div class="d-flex justify-content-center">
+    <%= link_to "Log out", destroy_user_session_path, class: "btn btn-outline-danger mt-2 mb-5", data: {turbo_method: :delete} %>
+  </div>
 </div>
 <%= render "layouts/footer" %>
