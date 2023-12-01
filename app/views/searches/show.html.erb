@@ -1,58 +1,95 @@
+<%= render "shared/navbar_black" %>
 <div class="search">
-  <%= render "shared/navbar_black" %>
-  <div class="container pro-cons-title">
-    <h1>Ijsbaanpad 12 1012 DE Amsterdam</h1>
+  <div class="pro-cons-title">
+    <h2><%= @search.location.address %></h2>
+    <h4>1012 DE Amsterdam*</h4>
   </div>
-  <div class ="container search-container">
-    <div class="map-show">
-      <div style="width: 100%; height: 450px;"
-            data-controller="map"
-            data-map-markers-value="<%= @markers.to_json %>"
-            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <div class ="map_card_grid">
+    <div class="map-show"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
     <div class="cards">
-      <div class="card-product row">
-        <i class="fa-solid fa-graduation-cap col-2"></i>
-        <div class="card-product-infos col-10">
-          <h2>Restaurants in the area</h2>
-          <p>Lorem ipsum dolor sit amet <strong>consectetur adipisicing</strong> elit. Nostrum ab nesciunt illum excepturi, praesentium sed, eaque ea laudantium quae totam tenetur non consequuntur asperiores corrupti error voluptate, a incidunt cum.</p>
+      <div class="<%= @search.restaurants_score > 3 ? "card-score pro row" : @search.restaurants_score <= 3 && @search.restaurants_score > -3 ? "card-score row" : "card-score con row"%>">
+        <i class="fa-solid fa-utensils"></i>
+        <div>
+          <h2>Restaurants</h2>
+          <% if @search.restaurants_score > 3 %>
+            <p>There are lots of restaurants around this place. Sweet!</p>
+          <% elsif @search.restaurants_score <= 3 && @search.restaurants_score > -3 %>
+            <p>There are some restaurants around.</p>
+          <% else %>
+            <p>There are no restaurants in the area.</p>
+          <% end %>
         </div>
       </div>
-      <div class="card-product row">
-        <i class="fa-solid fa-utensils col-2"></i>
-        <div class="card-product-infos col-10">
-          <h2>Restaurants in the area</h2>
-          <p>Lorem ipsum dolor sit amet <strong>consectetur adipisicing</strong> elit. Nostrum ab nesciunt illum excepturi, praesentium sed, eaque ea laudantium quae totam tenetur non consequuntur asperiores corrupti error voluptate, a incidunt cum.</p>
+      <div class="<%= @search.supermarkets_score > 3 ? "card-score pro row" : @search.supermarkets_score <= 3 && @search.supermarkets_score > -3 ? "card-score row" : "card-score con row"%>">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <div>
+          <h2>Supermarkets</h2>
+          <% if @search.supermarkets_score > 3 %>
+            <p>Great! There are grocery stores nearby.</p>
+          <% elsif @search.supermarkets_score <= 3 && @search.supermarkets_score > -3 %>
+            <p>There are not many grocery stores.</p>
+          <% else %>
+            <p>No grocery stores around.</p>
+          <% end %>
         </div>
       </div>
-      <div class="card-product row">
-        <i class="fa-solid fa-car col-2"></i>
-        <div class="card-product-infos col-10">
-          <h2>Parking</h2>
-          <p>Lorem ipsum dolor sit amet <strong>consectetur adipisicing</strong> elit. Nostrum ab nesciunt illum excepturi, praesentium sed, eaque ea laudantium quae totam tenetur non consequuntur asperiores corrupti error voluptate, a incidunt cum.</p>
+      <div class="<%= @search.schools_score > 3 ? "card-score pro row" : @search.schools_score <= 3 && @search.schools_score > -3 ? "card-score row" : "card-score con row"%>">
+        <i class="fa-solid fa-pencil"></i>
+        <div>
+          <h2>Schools</h2>
+          <% if @search.schools_score > 3 %>
+            <p>Many schools nearby, how lucky!</p>
+          <% elsif @search.schools_score <= 3 && @search.schools_score > -3 %>
+            <p>There are a couple schools around here.</p>
+          <% else %>
+            <p>No schools in this neighborhood.</p>
+          <% end %>
         </div>
       </div>
-      <div class="card-product row">
-        <i class="fa-solid fa-tree col-2"></i>
-        <div class="card-product-infos col-10">
-          <h2>Nature</h2>
-          <p>Lorem ipsum dolor sit amet <strong>consectetur adipisicing</strong> elit. Nostrum ab nesciunt illum excepturi, praesentium sed, eaque ea laudantium quae totam tenetur non consequuntur asperiores corrupti error voluptate, a incidunt cum.</p>
+      <div class="<%= @search.parks_score > 3 ? "card-score pro row" : @search.parks_score < -3 ? "card-score con row" : "card-score row"%>">
+        <i class="fa-solid fa-tree"></i>
+        <div>
+          <h2>Parks</h2>
+          <% if @search.parks_score > 3 %>
+            <p>A lot of parks around. Nature time!</p>
+          <% elsif @search.parks_score <= 3 && @search.parks_score > -3 %>
+            <p>This area has some parks.</p>
+          <% else %>
+            <p>No parks here, unfortunately.</p>
+          <% end %>
         </div>
       </div>
-      <div class="card-product row">
-        <i class="fa-solid fa-train-subway col-2"></i>
-        <div class="card-product-infos col-10">
-          <h2>Travel to work</h2>
-          <p>Lorem ipsum dolor sit amet <strong>consectetur adipisicing</strong> elit. Nostrum ab nesciunt illum excepturi, praesentium sed, eaque ea laudantium quae totam tenetur non consequuntur asperiores corrupti error voluptate, a incidunt cum.</p>
+      <div class="<%= @search.nightlife_score > 3 ? "card-score pro row" : @search.nightlife_score <= 3 && @search.nightlife_score > -3 ? "card-score row" : "card-score con row"%>">
+        <i class="fa-solid fa-moon"></i>
+        <div>
+          <h2>Nightlife</h2>
+          <% if @search.nightlife_score > 3 %>
+            <p>Lots of fun options here!</p>
+          <% elsif @search.nightlife_score <= 3 && @search.nightlife_score > -3 %>
+            <p>There are a couple options nearby.</p>
+          <% else %>
+            <p>Not a busy nightlife around here.</p>
+          <% end %>
         </div>
       </div>
-      <div class="card-product row">
-        <i class="fa-solid fa-person-breastfeeding col-2"></i>
-        <div class="card-product-infos col-10">
-          <h2>Close to mother</h2>
-          <p>Lorem ipsum dolor sit amet <strong>consectetur adipisicing</strong> elit. Nostrum ab nesciunt illum excepturi, praesentium sed, eaque ea laudantium quae totam tenetur non consequuntur asperiores corrupti error voluptate, a incidunt cum.</p>
+      <div class="<%= @search.transportation_score > 3 ? "card-score pro row" : @search.transportation_score <= 3 && @search.transportation_score > -3 ? "card-score row" : "card-score con row"%>">
+        <i class="fa-solid fa-train-subway"></i>
+        <div>
+          <h2>Public transportation</h2>
+          <% if @search.transportation_score > 3 %>
+            <p>Lots of options, you can get where you need!</p>
+          <% elsif @search.transportation_score <= 3 && @search.transportation_score > -3 %>
+            <p>There are ways to get around.</p>
+          <% else %>
+            <p>No public transport close by.</p>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
-  <%= render "layouts/footer" %>
+</div>
+<%= render "layouts/footer" %>
