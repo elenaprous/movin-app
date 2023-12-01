@@ -9,8 +9,8 @@ class Search < ApplicationRecord
     columns.each do |col|
       col = col.name
 
-      score_from_user     = self.user.send(col) || 0
-      score_from_location = self.location.send(col) || 0
+      score_from_user     = self.user.send(col) || 1
+      score_from_location = self.location.send(col) || 1
 
       puts "#{col} - #{score_from_user} - #{score_from_location}"
 
