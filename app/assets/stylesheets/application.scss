@@ -27,3 +27,11 @@ body {
   background-color: $dark-purple;
   border: 0;
 }
+
+.form-control {
+  color: $black;
+}
+
+.form-control:focus {
+  color: $black;
+}

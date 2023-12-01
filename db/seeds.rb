@@ -27,7 +27,7 @@ Location.create!(address: "Dijksgracht 6, 1019 BS Amsterdam")
 user = User.create!(email: "admin@gmail.com", password: "123456", first_name: "Peter", last_name: "Green", supermarkets_score: 1, schools_score: 5, parks_score: 2, nightlife_score: 1, restaurants_score: 4, transportation_score: 3, gyms_score: 2)
 
 Location.all.each do |location|
-  places = HTTParty.get("https://api.tomtom.com/search/2/nearbySearch/.json\?key\=#{ENV["TOM_TOM_KEY"]}\&lat\=#{location.latitude}\&lon\=#{location.longitude}\&radius\=1000\&limit\=100")["results"]
+  places = HTTParty.get("https://api.tomtom.com/search/2/nearbySearch/.json\?key\=#{ENV["TOM_TOM_KEY"]}\&lat\=#{location.latitude}\&lon\=#{location.longitude}\&radius\=500\&limit\=100")["results"]
   supermarket_count = places.count { |place| place["poi"]["categories"].include?("shop")}
   location.supermarkets_score = supermarket_count
 
