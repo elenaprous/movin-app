@@ -21,4 +21,19 @@ class Location < ApplicationRecord
     end
     self.save!
   end
+
+  def location_scores!
+    places = HTTParty.get("https://api.tomtom.com/search/2/nearbySearch/.json\?key\=#{ENV["TOM_TOM_KEY"]}\&lat\=#{self.latitude}\&lon\=#{self.longitude}\&radius\=500\&limit\=100")["results"]
+
+    self.supermarkets_score = places.count { |place| place["poi"]["categories"].include?("shop") }
+
+    self.schools_score = places.count { |place| place["poi"]["categories"].include?("school") }
+
+    self.restaurants_score = places.count { |place| place["poi"]["categories"].include?("restaurant") }
+
+    self.transportation_score = places.count { |place| place["poi"]["categories"].include?("public transport stop") }
+
+    self.compute_score!
+    self.save!
+  end
 end
