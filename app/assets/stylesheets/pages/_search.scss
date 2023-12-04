@@ -73,8 +73,7 @@
 .card-product {
   display: flex;
   justify-content: space-between;
-  overflow: hidden;
-  height: 120px;
+  padding: 22px;
   background: transparent;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   align-items: center;
@@ -111,7 +110,10 @@
 }
 
 .card-product .card-product-infos {
-  padding: 15px;
+  h6 {
+    color: gray;
+    margin: 0px;
+  }
 }
 
 .card-product img {
