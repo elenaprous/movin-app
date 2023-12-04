@@ -1,26 +1,17 @@
-<div class="container card-product">
-  <%# <i class="fa-regular fa-house"></i> %>
-  <%# <img src="https://images.unsplash.com/photo-1527772482340-7895c3f2b3f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8YXBhcnRtZW50LzEyODAqMTI4MHx8fHx8fDE3MDEyOTU3NzI&ixlib=rb-4.0.3&q=80&w=1080" /> %>
-  <%= link_to search_path(search) do%>
+<%= link_to search_path(search), class: "card-link" do%>
+  <div class=" card-product">
     <div class="card-product-infos">
-      <h2><%= search.location.address %></h2>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+      <% location = search.location.address.split(", ") %>
+      <h5><%= location[0] %></h5>
+      <h6><%= location[1] %></h6>
     </div>
-  <% end %>
   <div class="d-flex align-items-center">
     <div class="flex-container align-items-center">
-      <%# <div class="flex-item ml-3 mt-2 mx-3">Overview</div> %>
-      <%# <div class="flex-item mx-2 mt-2">Restaurants:</div> %>
       <div class="flex-item fa-solid"><i class="fa-solid fa-utensils heart" style="<%= search.restaurants_score > 3 ? "color: green" : search.restaurants_score <= 3 && search.restaurants_score > 0 ? "color: gray" : "color: red"%>"></i></div>
-      <%# <div class="flex-item mx-2 mt-2">Shopping:</div> %>
       <div class="flex-item fa-solid"><i class="fa-solid fa-cart-shopping heart" style="<%= search.supermarkets_score > 3 ? "color: green" : search.supermarkets_score <= 3 && search.supermarkets_score > 0 ? "color: gray" : "color: red"%>"></i></div>
-      <%# <div class="flex-item mx-2 mt-2">Schools:</div> %>
       <div class="flex-item fa-solid"><i class="fa-solid fa-pencil heart" style="<%= search.schools_score > 3 ? "color: green" : search.schools_score <= 3 && search.schools_score > 0 ? "color: gray" : "color: red"%>"></i></div>
-      <%# <div class="flex-item mx-2 mt-2">Parks:</div> %>
       <div class="flex-item fa-solid"><i class="fa-solid fa-tree heart"  style="<%= search.parks_score > 3 ? "color: green" : search.parks_score <= 3 && search.parks_score > 0 ? "color: gray" : "color: red"%>"></i></div>
-      <%# <div class="flex-item mx-2 mt-2">Nightlife:</div> %>
       <div class="flex-item fa-solid"><i class="fa-solid fa-moon heart"  style="<%= search.nightlife_score > 3 ? "color: green" : search.nightlife_score <= 3 && search.nightlife_score > 0 ? "color: gray" : "color: red"%>"></i></div>
-      <%# <div class="flex-item mx-2 mt-2">Public Transport:</div> %>
       <div class="flex-item fa-solid"><i class="fa-solid fa-train-subway heart"  style="<%= search.transportation_score > 3 ? "color: green" : search.transportation_score <= 3 && search.transportation_score > 0 ? "color: gray" : "color: red"%>"></i></div>
     </div>
     <div class="fa-solid ms-5">
@@ -28,3 +19,4 @@
     </div>
   </div>
 </div>
+<% end %>

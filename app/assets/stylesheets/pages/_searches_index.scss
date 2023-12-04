@@ -15,5 +15,10 @@
 
 .flex-container {
   display: flex;
-  justify-content: flex-end; // or `flex-start`
+  justify-content: flex-end;
+}
+.index-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
