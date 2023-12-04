@@ -4,17 +4,31 @@
     <h1>Your honest housing agent</h1>
     <p>Discover which house is your perfect match.</p>
     <div class="hero_form">
-      <%= form_with url: preferences_path, method: :get, class: "d-flex", data: { turbo:false } do %>
-        <div data-controller="address-autocomplete" data-address-autocomplete-api-key-value="<%=ENV['MAPBOX_API_KEY']%>">
-        <%= text_field_tag :query,
-              params[:query],
-              class: "d-none",
-              placeholder: "Give us an address",
-              data: { address_autocomplete_target: "address" }
+      <% if user_signed_in? %>
+        <%= form_with method: :get, class: "d-flex", data: { turbo:false } do %>
+          <div data-controller="address-autocomplete" data-address-autocomplete-api-key-value="<%=ENV['MAPBOX_API_KEY']%>">
+          <%= text_field_tag :query,
+                params[:query],
+                class: "d-none",
+                placeholder: "Give us an address",
+                data: { address_autocomplete_target: "address" }
           %>
-        </div>
-          <%= submit_tag "Search", class: "hero_form_button" %>
+          </div>
+            <%= submit_tag "Search", class: "hero_form_button" %>
         <% end %>
+      <% else %>
+        <%= form_with url: preferences_path, method: :get, class: "d-flex", data: { turbo:false } do %>
+          <div data-controller="address-autocomplete" data-address-autocomplete-api-key-value="<%=ENV['MAPBOX_API_KEY']%>">
+          <%= text_field_tag :query,
+                params[:query],
+                class: "d-none",
+                placeholder: "Give us an address",
+                data: { address_autocomplete_target: "address" }
+          %>
+          </div>
+            <%= submit_tag "Search", class: "hero_form_button" %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
