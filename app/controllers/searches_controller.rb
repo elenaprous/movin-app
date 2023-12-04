@@ -2,13 +2,13 @@ class SearchesController < ApplicationController
   def show
     @search = Search.find(params[:id])
 
-    # scores = [@search.supermarkets_score, @search.schools_score, @search.parks_score, @search.nightlife_score, @search.restaurants_score, @search.transportation_score]
+    # places = @search.location.pois
     @markers = [
-      # scores.geocoded.map do |score|
+      # places.geocoded.map do |place|
       #   {
-      #     lat: score.latitude,
-      #     lng: score.longitude,
-      #     info_window_html: render_to_string(partial: "info_window", locals: { score: score })
+      #     lat: place.lat,
+      #     lng: place.lon,
+      #     info_window_html: render_to_string(partial: "info_window", locals: { place: place })
       #   }
       # end,
       {
