@@ -12,3 +12,8 @@
   min-height: calc(100vh - 328px);
   padding-bottom: 20px;
 }
+
+.flex-container {
+  display: flex;
+  justify-content: flex-end; // or `flex-start`
+}
