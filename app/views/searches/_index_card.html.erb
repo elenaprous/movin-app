@@ -1,12 +1,12 @@
-<div class="container card-product">
-<%# <i class="fa-regular fa-house"></i> %>
-  <%# <img src="https://images.unsplash.com/photo-1527772482340-7895c3f2b3f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8YXBhcnRtZW50LzEyODAqMTI4MHx8fHx8fDE3MDEyOTU3NzI&ixlib=rb-4.0.3&q=80&w=1080" /> %>
-  <%= link_to search_path(search) do%>
-  <div class="card-product-infos">
-    <% location = search.location.address.split(", ") %>
-    <h5><%= location[0] %></h5>
-    <h6><%= location[1] %></h6>
+<%= link_to search_path(search), class: "card-link" do%>
+  <div class=" card-product">
+  <%# <i class="fa-regular fa-house"></i> %>
+    <%# <img src="https://images.unsplash.com/photo-1527772482340-7895c3f2b3f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8YXBhcnRtZW50LzEyODAqMTI4MHx8fHx8fDE3MDEyOTU3NzI&ixlib=rb-4.0.3&q=80&w=1080" /> %>
+    <div class="card-product-infos">
+      <% location = search.location.address.split(", ") %>
+      <h5><%= location[0] %></h5>
+      <h6><%= location[1] %></h6>
+    </div>
+    <div class="fa-solid"><i class="fa-regular fa-heart heart heart"></i></div>
   </div>
-  <% end %>
-  <div class="fa-solid"><i class="fa-regular fa-heart heart heart"></i></div>
-</div>
+<% end %>
