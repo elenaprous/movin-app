@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_30_155123) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_04_162132) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,6 +28,18 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_155123) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+  end
+
+  create_table "pois", force: :cascade do |t|
+    t.string "address"
+    t.string "name"
+    t.string "category"
+    t.float "lat"
+    t.float "lon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "location_id"
+    t.index ["location_id"], name: "index_pois_on_location_id"
   end
 
   create_table "searches", force: :cascade do |t|
@@ -69,6 +81,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_155123) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "pois", "locations"
   add_foreign_key "searches", "locations"
   add_foreign_key "searches", "users"
 end
