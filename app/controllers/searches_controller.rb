@@ -6,13 +6,15 @@ class SearchesController < ApplicationController
       {
         lat: place.lat,
         lng: place.lon,
-        info_window_html: render_to_string(partial: "poi_window", locals: { place: place })
+        info_window_html: render_to_string(partial: "poi_window", locals: { place: place }),
+        marker_html: render_to_string(partial: "marker")
       }
     end
     @markers << {
       lat: @search.location.latitude,
       lng: @search.location.longitude,
-      info_window_html: render_to_string(partial: "info_window", locals: { location: location })
+      info_window_html: render_to_string(partial: "info_window", locals: { location: location }),
+      marker_html: render_to_string(partial: "marker_house")
     }
   end
 
