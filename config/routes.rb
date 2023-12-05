@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
   get '/preferences', to: 'pages#preferences'
+  patch '/preferences/edit/:user_id', to: 'pages#edit_preferences', as: :preferences_edit
 
   get "up" => "rails/health#show", as: :rails_health_check
 

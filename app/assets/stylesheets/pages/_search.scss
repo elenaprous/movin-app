@@ -1,5 +1,5 @@
 .search {
-  padding: 0px 80px 40px 80px;
+  padding: 0px 80px 40px 65px;
 }
 
 .map_card_grid {
@@ -114,4 +114,9 @@
   height: 100%;
   width: 120px;
   object-fit: cover;
+}
+
+.search-highlight {
+  color: black;
+  text-decoration: underline;
 }
