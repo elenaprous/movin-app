@@ -23,13 +23,75 @@
   margin-top: 28px;
 }
 
-.hero_form_field {
+.mapboxgl-ctrl-geocoder--input {
   width: 560px;
-  background-color: rgba($color: $white, $alpha: 0.3);
+  background-color: rgba($color: $white, $alpha: 0.2);
   border: 1px solid rgba($color: $light-gray, $alpha: 0.4);
   border-radius: 2px;
   font-size: 16px;
-  padding: 4px 12px 4px 12px;
+  padding: 6px 10px 6px 10px;
+  &::placeholder {
+    color: $white;
+  }
+}
+
+.mapboxgl-ctrl-geocoder--button {
+  display: none;
+}
+
+.mapboxgl-ctrl-geocoder--pin-right {
+  display: none;
+}
+
+.mapboxgl-ctrl-geocoder--icon {
+  display: none;
+}
+
+.suggestions-wrapper {
+  width: 560px;
+  background-color: rgba($color: $white, $alpha: 0.3);
+  border-radius: 2px;
+  font-size: 18px;
+  color: rgba($color: $dark-gray, $alpha: 0.8) !important;
+  border-top-right-radius: 15px;
+  margin-bottom: 10px !important;
+  border-radius: 4px !important;
+}
+
+.suggestions {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 8px;
+}
+
+.mapboxgl-ctrl-geocoder--suggestion {
+  display: flex;
+  gap: 8px;
+  background-color: rgba($color: $white, $alpha: 0.9) !important;
+  // border-radius: 4px !important;
+}
+
+.mapboxgl-ctrl-geocoder--suggestion-title {
+  width: auto;
+  text-align: justify;
+  margin: 0;
+  padding: 0px 8px 0px 8px;
+  color: black;
+}
+
+.mapboxgl-ctrl-geocoder--suggestion-address {
+  width: auto;
+  text-align: justify;
+  margin: 0;
+  padding: 0px 8px 0px 8px;
+}
+.mapboxgl-ctrl-geocoder--powered-by {
+  display: none !important;
+  // border-radius: 4px !important;
+}
+
+.input {
+  color: $white;
 }
 
 .hero_form_button {
@@ -40,4 +102,5 @@
   color: $white;
   padding: 4px 12px 4px 12px;
   margin-left: 8px;
+  height: 34px;
 }
