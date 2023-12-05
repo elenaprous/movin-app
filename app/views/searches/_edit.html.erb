@@ -1,0 +1,60 @@
+<div class="form_block pt-0">
+    <div class="form_question mb-5 mt-0">
+      <h2>Your choices</h2>
+      <div class="index-title">
+      <h6>Add a relevant address to you, like your work or a family member's house.</h6>
+      </div>
+      <%= form_tag(preferences_edit_path(current_user.id), method: :patch) do -%>
+      <div data-controller="address-autocomplete" data-address-autocomplete-api-key-value="<%=ENV['MAPBOX_API_KEY']%>">
+        <%= search_field_tag 'important_addresses', nil,
+          class: 'd-none',
+          placeholder: "Give us an important address",
+          data: { address_autocomplete_target: "address" }
+        %>
+      </div>
+      <div><h4>Important addresses: </h4>
+      <ul>
+        <% current_user.important_addresses.each do |address| %>
+        <li><%= address %></li>
+        <% end %>
+      </ul>
+      </div>
+    </div>
+      <div class="form_question">
+        <h5>Do you need these nearby?</h5>
+        <p>Rate on a scale of 1 to 5.</p>
+        <div class="options_grid">
+          <div class="option">
+            <p>Supermarkets</p>
+            <%# 0 %>
+            <%= range_field_tag 'supermarkets_score', options_for_select(1..5), as: :range, type:'range', class:'form_label form-range slider_rating', min:'0', max:'5', step:'1', value: current_user.supermarkets_score %>
+            <%# 5 %>
+          </div>
+          <div class="option">
+            <p>Schools</p>
+            <%# 0 %>
+            <%= range_field_tag 'schools_score', options_for_select(1..5), as: :range, type:'range', class:'form_label form-range slider_rating', min:'0', max:'5', step:'1', value: current_user.schools_score %>
+            <%# 5 %>
+          </div>
+        </div>
+        <div class="options_grid">
+          <div class="option">
+            <p>Restaurants</p>
+            <%# 0 %>
+            <%= range_field_tag 'restaurants_score', options_for_select(1..5), as: :range, type:'range', class:'form_label form-range slider_rating', min:'0', max:'5', step:'1',value: current_user.restaurants_score %>
+            <%# 5 %>
+          </div>
+          <div class="option">
+            <p>Public transport</p>
+            <%# 0 %>
+            <%= range_field_tag 'transportation_score', options_for_select(1..5), as: :range, type:'range', class:'form_label form-range slider_rating', min:'0', max:'5', step:'1',value: current_user.transportation_score%>
+            <%# 5 %>
+          </div>
+        </div>
+      </div>
+      <div class="submit">
+        <p>These preferences (and more!) can be changed at any time.</p>
+        <%= submit_tag 'Save', class: 'btn btn-primary', data: {controller: "dashboard", action:"click->dashboard#save"} %>
+      </div>
+    <% end -%>
+</div>

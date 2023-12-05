@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_04_162132) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_05_150117) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -69,7 +69,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_162132) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.string "important_addresses"
     t.integer "supermarkets_score"
     t.integer "schools_score"
     t.integer "parks_score"
@@ -77,6 +76,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_162132) do
     t.integer "restaurants_score"
     t.integer "transportation_score"
     t.integer "gyms_score"
+    t.string "important_addresses", default: [], array: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
