@@ -24,7 +24,7 @@ class Location < ApplicationRecord
   end
 
   def location_scores!
-    p places = HTTParty.get("https://api.tomtom.com/search/2/nearbySearch/.json\?key\=#{ENV["TOM_TOM_KEY"]}\&lat\=#{self.latitude}\&lon\=#{self.longitude}\&radius\=500\&limit\=100")["results"]
+    places = HTTParty.get("https://api.tomtom.com/search/2/nearbySearch/.json\?key\=#{ENV["TOM_TOM_KEY"]}\&lat\=#{self.latitude}\&lon\=#{self.longitude}\&radius\=500\&limit\=100")["results"]
 
     supermarkets = []
     schools = []
