@@ -3,7 +3,7 @@
   <div class="pro-cons-title">
     <% location = @search.location.address.split(", ") %>
     <h2><%= location[0] %></h2>
-    <h4><%= location[1] %></h4>
+    <h4><%= "#{location[1]}, #{location[2]}" %></h4>
   </div>
   <div class ="map_card_grid">
     <div class="map-show"
@@ -17,7 +17,7 @@
         <div>
           <h2>Restaurants</h2>
           <% if @search.restaurants_score > 3 %>
-            <p>There are lots of restaurants around this place. Sweet!</p>
+            <p>There are lots of restaurants around this place!</p>
           <% elsif @search.restaurants_score <= 3 && @search.restaurants_score > 0 %>
             <p>There are some restaurants around.</p>
           <% else %>
@@ -51,16 +51,29 @@
           <% end %>
         </div>
       </div>
-      <div class="<%= @search.parks_score > 3 ? "card-score pro row" : @search.parks_score < 0 ? "card-score con row" : "card-score row"%>">
-        <i class="fa-solid fa-tree"></i>
+      <div class="<%= @search.transportation_score > 3 ? "card-score pro row" : @search.transportation_score <= 3 && @search.transportation_score > 0 ? "card-score row" : "card-score con row"%>">
+        <i class="fa-solid fa-train-subway"></i>
         <div>
-          <h2>Parks</h2>
-          <% if @search.parks_score > 3 %>
-            <p>A lot of parks around. Nature time!</p>
-          <% elsif @search.parks_score <= 3 && @search.parks_score > 0 %>
-            <p>This area has some parks.</p>
+          <h2>Public transportation</h2>
+          <% if @search.transportation_score > 3 %>
+            <p>Lots of options, you can get where you need!</p>
+          <% elsif @search.transportation_score <= 3 && @search.transportation_score > 0 %>
+            <p>There are ways to get around.</p>
           <% else %>
-            <p>No parks here, unfortunately.</p>
+            <p>No public transport close by.</p>
+          <% end %>
+        </div>
+      </div>
+      <div class="<%= @search.gyms_score > 3 ? "card-score pro row" : @search.gyms_score <= 3 && @search.gyms_score > 0 ? "card-score row" : "card-score con row"%>">
+        <i class="fa-solid fa-dumbbell"></i>
+        <div>
+          <h2>Gyms</h2>
+          <% if @search.gyms_score > 3 %>
+            <p>Many options for fitness!</p>
+          <% elsif @search.gyms_score <= 3 && @search.gyms_score > 0 %>
+            <p>There are ways to stay fit around here.</p>
+          <% else %>
+            <p>No gyms in this area.</p>
           <% end %>
         </div>
       </div>
@@ -74,19 +87,6 @@
             <p>There are a couple options nearby.</p>
           <% else %>
             <p>Not a busy nightlife around here.</p>
-          <% end %>
-        </div>
-      </div>
-      <div class="<%= @search.transportation_score > 3 ? "card-score pro row" : @search.transportation_score <= 3 && @search.transportation_score > 0 ? "card-score row" : "card-score con row"%>">
-        <i class="fa-solid fa-train-subway"></i>
-        <div>
-          <h2>Public transportation</h2>
-          <% if @search.transportation_score > 3 %>
-            <p>Lots of options, you can get where you need!</p>
-          <% elsif @search.transportation_score <= 3 && @search.transportation_score > 0 %>
-            <p>There are ways to get around.</p>
-          <% else %>
-            <p>No public transport close by.</p>
           <% end %>
         </div>
       </div>

@@ -1,1 +1,5 @@
-<h2 class="mapbox-info-title"><%= @search.location.address %></h2>
+<div class="map-info">
+  <% location = @search.location.address.split(", ") %>
+    <h3><%= location[0] %></h3>
+    <h4><%= location[1] %></h4>
+</div>

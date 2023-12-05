@@ -1,5 +1,6 @@
 class Location < ApplicationRecord
   has_many :searches
+  has_many :pois
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
@@ -25,14 +26,33 @@ class Location < ApplicationRecord
   def location_scores!
     places = HTTParty.get("https://api.tomtom.com/search/2/nearbySearch/.json\?key\=#{ENV["TOM_TOM_KEY"]}\&lat\=#{self.latitude}\&lon\=#{self.longitude}\&radius\=500\&limit\=100")["results"]
 
-    self.supermarkets_score = places.count { |place| place["poi"]["categories"].include?("shop") }
+    supermarkets = []
+    schools = []
+    restaurants = []
+    transportations = []
+    nightlifes = []
+    gyms = []
 
-    self.schools_score = places.count { |place| place["poi"]["categories"].include?("school") }
+    places.each do |place|
+      place["poi"]["categories"].include?("market") ? supermarkets << place : nil
+      place["poi"]["categories"].include?("school") ? schools << place : nil
+      place["poi"]["categories"].include?("restaurant") ? restaurants << place : nil
+      place["poi"]["categories"].include?("public transport stop") ? transportations << place : nil
+      place["poi"]["categories"].include?("nightlife") ? nightlifes << place : nil
+      place["poi"]["categories"].include?("fitness club center") ? gyms << place : nil
+    end
 
-    self.restaurants_score = places.count { |place| place["poi"]["categories"].include?("restaurant") }
+    supermarkets.each { |supermarket| Poi.create!(location_id: self.id, address: supermarket["address"]["freeformAddress"], name: supermarket["poi"]["name"], category: supermarket["poi"]["categories"], lat: supermarket["position"]["lat"], lon: supermarket["position"]["lon"]) }
+    schools.each { |school| Poi.create!(location_id: self.id, address: school["address"]["freeformAddress"], name: school["poi"]["name"], category: school["poi"]["categories"], lat: school["position"]["lat"], lon: school["position"]["lon"]) }
+    restaurants.each { |restaurant| Poi.create!(location_id: self.id, address: restaurant["address"]["freeformAddress"], name: restaurant["poi"]["name"], category: restaurant["poi"]["categories"], lat: restaurant["position"]["lat"], lon: restaurant["position"]["lon"]) }
+    transportations.each { |transportation| Poi.create!(location_id: self.id, address: transportation["address"]["freeformAddress"], name: transportation["poi"]["name"], category: transportation["poi"]["categories"], lat: transportation["position"]["lat"], lon: transportation["position"]["lon"]) }
+    nightlifes.each { |nightlife| Poi.create!(location_id: self.id, address: nightlife["address"]["freeformAddress"], name: nightlife["poi"]["name"], category: nightlife["poi"]["categories"], lat: nightlife["position"]["lat"], lon: nightlife["position"]["lon"]) }
+    gyms.each { |gym| Poi.create!(location_id: self.id, address: gym["address"]["freeformAddress"], name: gym["poi"]["name"], category: gym["poi"]["categories"], lat: gym["position"]["lat"], lon: gym["position"]["lon"]) }
 
-    self.transportation_score = places.count { |place| place["poi"]["categories"].include?("public transport stop") }
-
+    self.supermarkets_score = supermarkets.count
+    self.schools_score = schools.count
+    self.restaurants_score = restaurants.count
+    self.transportation_score = transportations.count
     self.compute_score!
     self.save!
   end

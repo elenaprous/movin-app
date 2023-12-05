@@ -30,6 +30,18 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_150117) do
     t.float "longitude"
   end
 
+  create_table "pois", force: :cascade do |t|
+    t.string "address"
+    t.string "name"
+    t.string "category"
+    t.float "lat"
+    t.float "lon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "location_id"
+    t.index ["location_id"], name: "index_pois_on_location_id"
+  end
+
   create_table "searches", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "location_id", null: false
@@ -69,6 +81,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_150117) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "pois", "locations"
   add_foreign_key "searches", "locations"
   add_foreign_key "searches", "users"
 end
