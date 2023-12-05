@@ -25,20 +25,28 @@ export default class extends Controller {
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_html);
-      // new mapboxgl.Marker()
-      //   .setLngLat([marker.lng, marker.lat])
-      //   .setPopup(popup)
-      //   .addTo(this.map);
 
       const customMarker = document.createElement("div")
-      customMarker.innerHTML = marker.marker_html
+      if(marker.category.includes("school")) {
+        customMarker.innerHTML = marker.marker_schools
+      } else if(marker.category.includes("restaurant")) {
+        customMarker.innerHTML = marker.marker_restaurants
+      } else if(marker.category.includes("public transport stop")) {
+        customMarker.innerHTML = marker.marker_transportation
+      } else if(marker.category.includes("nightlife")) {
+        customMarker.innerHTML = marker.marker_nightlife
+      } else if(marker.category.includes("fitness club center")) {
+        customMarker.innerHTML = marker.marker_gyms
+      } else if(marker.category == "address") {
+        customMarker.innerHTML = marker.marker_house
+      } else {
+        customMarker.innerHTML = marker.marker_supermarkets
+      }
 
       new mapboxgl.Marker(customMarker)
         .setLngLat([marker.lng, marker.lat])
         .setPopup(popup)
         .addTo(this.map)
-      // Activate and show the address in the mapbox layout to display without a click
-      // .togglePopup();
     });
   }
 
