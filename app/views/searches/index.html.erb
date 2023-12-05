@@ -1,8 +1,8 @@
 <div data-controller="dashboard">
   <%= render "shared/navbar_black" %>
-  <div>
-    <p data-action="click->dashboard#toggle">SEARCHES</p>
-    <p data-action="click->dashboard#toggle">PREFERENCES</p>
+  <div class="search">
+    <p class="cursor" data-action="click->dashboard#toggle">SEARCHES</p>
+    <p class="cursor" data-action="click->dashboard#toggle">PREFERENCES</p>
   </div>
   <div data-dashboard-target="searches"><%= render "index" %></div>
   <div data-dashboard-target="preferences" class="d-none"><%= render "edit" %></div>

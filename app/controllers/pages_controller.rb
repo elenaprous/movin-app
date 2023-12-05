@@ -29,12 +29,12 @@ class PagesController < ApplicationController
   end
 
   def edit_preferences
-    user = User.find(current_user.id)
+    user = User.find(params[:user_id])
     user.update(preferences_params)
-    redirect_to preferences_path
+    # redirect_to searches_path
   end
 
   def preferences_params
-    params.require(:user).permit(:supermarkets_score, :schools_score, :restaurants_score, :transportation_score)
+    params.permit(:supermarkets_score, :schools_score, :restaurants_score, :transportation_score, :important_addresses)
   end
 end
