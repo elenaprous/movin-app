@@ -1,15 +1,12 @@
 class Search < ApplicationRecord
   belongs_to :user
   belongs_to :location
-  
-  after_save :compute_score_and_rank
 
   def compute_score_and_rank
     compute_score!()
     compute_rank!()
   end
 
-  private
 
   def compute_rank!
     columns = Search.columns.select { |col| col.name.include?("score") }
