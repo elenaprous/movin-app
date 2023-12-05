@@ -78,3 +78,4 @@ end
 
 gem "geocoder"
 gem "httparty"
+# gem "popperjs"
