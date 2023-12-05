@@ -1,8 +1,8 @@
 <div data-controller="dashboard">
   <%= render "shared/navbar_black" %>
-  <div class="search">
-    <p class="cursor" data-action="click->dashboard#toggle">SEARCHES</p>
-    <p class="cursor" data-action="click->dashboard#toggle">PREFERENCES</p>
+  <div class="search index-title d-flex justify-content-around">
+    <h3 class="cursor search-highlight" data-action="click->dashboard#toggleSearches" data-dashboard-target="searchesTrigger">Searches</h3>
+    <h3 class="cursor" data-action="click->dashboard#togglePreferences" data-dashboard-target="preferencesTrigger">Preferences</h3>
   </div>
   <div data-dashboard-target="searches"><%= render "index" %></div>
   <div data-dashboard-target="preferences" class="d-none"><%= render "edit" %></div>

@@ -31,10 +31,13 @@ class PagesController < ApplicationController
   def edit_preferences
     user = User.find(params[:user_id])
     user.update(preferences_params)
+    user.important_addresses << params[:important_addresses] unless params[:important_addresses] == ""
+    user.important_addresses.flatten
+    user.save
     # redirect_to searches_path
   end
 
   def preferences_params
-    params.permit(:supermarkets_score, :schools_score, :restaurants_score, :transportation_score, :important_addresses)
+    params.permit(:supermarkets_score, :schools_score, :restaurants_score, :transportation_score)
   end
 end
