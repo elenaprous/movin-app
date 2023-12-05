@@ -24,7 +24,7 @@ Location.create!(address: "Arie Biemondstraat 111, 1054 PD, Amsterdam")
 Location.create!(address: "Roetersstraat 170, 1018 WE, Amsterdam")
 Location.create!(address: "Dijksgracht 6, 1019 BS, Amsterdam")
 
-user = User.create!(email: "admin@gmail.com", password: "123456", first_name: "Peter", last_name: "Green", supermarkets_score: 1, schools_score: 5, parks_score: 2, nightlife_score: 1, restaurants_score: 4, transportation_score: 3, gyms_score: 2)
+user = User.create!(email: "admin@gmail.com", password: "123456", first_name: "Peter", last_name: "Green", supermarkets_score: 5, schools_score: 5, parks_score: 1, nightlife_score: 1, restaurants_score: 4, transportation_score: 3, gyms_score: 2)
 
 Location.all.each do |location|
   places = HTTParty.get("https://api.tomtom.com/search/2/nearbySearch/.json\?key\=#{ENV["TOM_TOM_KEY"]}\&lat\=#{location.latitude}\&lon\=#{location.longitude}\&radius\=500\&limit\=100")["results"]
