@@ -13,7 +13,7 @@
   h3 {
     text-align: center;
     font-weight: 600;
-    margin-bottom: 64px;
+    margin-bottom: 30px;
   }
 }
 
@@ -27,11 +27,51 @@
   padding: 5px 15px 5px 15px;
 }
 
+.mapboxgl-ctrl-geocoder--input {
+  border-radius: 2px !important;
+  width: 100%;
+  color: $black;
+  background-color: transparent;
+  // border: 1px solid rgba(197, 197, 197, 1) !important;
+  // border-bottom: 0px solid rgba(197, 197, 197, 1) !important;
+  border-left: 1px solid rgba(197, 197, 197, 1) !important;
+  border-right: 1px solid rgba(197, 197, 197, 1) !important;
+  border-top: 1px solid rgba(197, 197, 197, 1) !important;
+  font-size: 18px;
+  padding: 5px 15px -5px 15px;
+  margin-top: 5px;
+  // margin-bottom: 15px;
+}
+
+.suggestions-wrapper {
+  background-color: var(--colorBackground);
+  border: var(--border);
+  border-radius: var(--borderRadius);
+  box-shadow: var(--boxShadow);
+  color: var(--colorText);
+  font-family: var(--fontFamily);
+  font-size: var(--unit);
+  font-weight: var(--fontWeight);
+  line-height: var(--lineHeight);
+  min-width: var(--minWidth);
+  overflow-y: auto;
+  position: absolute;
+  transform: translateZ(0px);
+  transition: visibility var(--duration);
+  width: var(--width);
+  z-index: 1000;
+  border: 1px solid #c5c5c5 !important;
+  // margin-top: 5px !important;
+  // border-bottom: 2px !important;
+  border-top: 1px !important;
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+
 .options_grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
-  margin-bottom: 8px;
+  margin-bottom: 0px;
 }
 
 .option {
@@ -46,6 +86,7 @@
 .submit {
   display: flex;
   justify-content: space-between;
+  margin-top: 40px;
 }
 
 .image_block {
@@ -95,4 +136,8 @@
 }
 
 .slider_rating {
+}
+
+.form_question {
+  margin-top: 35px;
 }
