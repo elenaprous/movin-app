@@ -51,19 +51,6 @@
           <% end %>
         </div>
       </div>
-      <div class="<%= @search.parks_score > 3 ? "card-score pro row" : @search.parks_score < 0 ? "card-score con row" : "card-score row"%>">
-        <i class="fa-solid fa-tree"></i>
-        <div>
-          <h2>Parks</h2>
-          <% if @search.parks_score > 3 %>
-            <p>A lot of parks around. Nature time!</p>
-          <% elsif @search.parks_score <= 3 && @search.parks_score > 0 %>
-            <p>This area has some parks.</p>
-          <% else %>
-            <p>No parks here, unfortunately.</p>
-          <% end %>
-        </div>
-      </div>
       <div class="<%= @search.nightlife_score > 3 ? "card-score pro row" : @search.nightlife_score <= 3 && @search.nightlife_score > 0 ? "card-score row" : "card-score con row"%>">
         <i class="fa-solid fa-moon"></i>
         <div>
