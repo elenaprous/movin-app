@@ -24,22 +24,20 @@ class Location < ApplicationRecord
   end
 
   def location_scores!
-    places = HTTParty.get("https://api.tomtom.com/search/2/nearbySearch/.json\?key\=#{ENV["TOM_TOM_KEY"]}\&lat\=#{self.latitude}\&lon\=#{self.longitude}\&radius\=500\&limit\=100")["results"]
+    p places = HTTParty.get("https://api.tomtom.com/search/2/nearbySearch/.json\?key\=#{ENV["TOM_TOM_KEY"]}\&lat\=#{self.latitude}\&lon\=#{self.longitude}\&radius\=500\&limit\=100")["results"]
 
     supermarkets = []
     schools = []
     restaurants = []
     transportations = []
-    # parks = []
     nightlifes = []
     gyms = []
 
     places.each do |place|
-      place["poi"]["categories"].include?("shop") ? supermarkets << place : nil
+      place["poi"]["categories"].include?("market") ? supermarkets << place : nil
       place["poi"]["categories"].include?("school") ? schools << place : nil
       place["poi"]["categories"].include?("restaurant") ? restaurants << place : nil
       place["poi"]["categories"].include?("public transport stop") ? transportations << place : nil
-      # parks = place["poi"]["categories"].include?("park")
       place["poi"]["categories"].include?("nightlife") ? nightlifes << place : nil
       place["poi"]["categories"].include?("fitness club center") ? gyms << place : nil
     end

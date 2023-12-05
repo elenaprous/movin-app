@@ -28,7 +28,7 @@ user = User.create!(email: "admin@gmail.com", password: "123456", first_name: "P
 
 Location.all.each do |location|
   places = HTTParty.get("https://api.tomtom.com/search/2/nearbySearch/.json\?key\=#{ENV["TOM_TOM_KEY"]}\&lat\=#{location.latitude}\&lon\=#{location.longitude}\&radius\=500\&limit\=100")["results"]
-  supermarket_count = places.count { |place| place["poi"]["categories"].include?("shop")}
+  supermarket_count = places.count { |place| place["poi"]["categories"].include?("market")}
   location.supermarkets_score = supermarket_count
 
   school_count = places.count { |place| place["poi"]["categories"].include?("school")}
