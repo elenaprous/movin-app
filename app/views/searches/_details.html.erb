@@ -15,7 +15,13 @@
           <% @search.location.pois.each do |place| %>
             <% if place.category.include?(category) %>
               <div class="poi-card">
-                <i class="fa-solid fa-pencil"></i>
+                <% icon = "fa-utensils" if category.include?("restaurant") %>
+                <% icon = "fa-shopping-cart" if category.include?("market") %>
+                <% icon = "fa-pencil" if category.include?("school") %>
+                <% icon = "fa-train-subway" if category.include?("public") %>
+                <% icon = "fa-dumbbell" if category.include?("fitness") %>
+                <% icon = "fa-moon" if category.include?("nightlife") %>
+                <i class="fa-solid <%= "#{icon}" %>"></i>
                   <div class="poi-info">
                     <div class="poi-infomain">
                       <h5><%= place.name %></h5>
