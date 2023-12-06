@@ -8,20 +8,21 @@
       <i class="fa-solid fa-xmark"></i>
     </div>
     <div class="poi-list">
-      <div class="poi-card">
-        <i class="fa-solid fa-pencil"></i>
-        <div class="poi-info">
-          <h5>Oya's Childcare</h5>
-          <p>IJsbaanpad 8, 1076 CV Amsterdam</p>
-        </div>
-      </div>
-      <div class="poi-card">
-        <i class="fa-solid fa-pencil"></i>
-        <div class="poi-info">
-          <h5>Examencentrum Amsterdam</h5>
-          <p>Amstelveenseweg 390, 1076 CT Amsterdam</p>
-        </div>
-      </div>
+      <% @search.location.pois.each do |place| %>
+        <% if place.category.include?("school") %>
+          <div class="poi-card">
+            <i class="fa-solid fa-pencil"></i>
+              <div class="poi-info">
+                <div class="poi-infomain">
+                  <h5><%= place.name %></h5>
+                  <p><%= place.address %></p>
+                </div>
+                <% categories = eval(place.category) %>
+                <p><%= categories.first.capitalize %></p>
+              </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

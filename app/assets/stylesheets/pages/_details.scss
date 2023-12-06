@@ -64,6 +64,17 @@
 }
 
 .poi-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  p {
+    color: gray;
+    margin: 0;
+  }
+}
+
+.poi-infomain {
   display: flex;
   gap: 16px;
 
@@ -73,5 +84,6 @@
 
   p {
     margin: 0;
+    color: $black;
   }
 }
