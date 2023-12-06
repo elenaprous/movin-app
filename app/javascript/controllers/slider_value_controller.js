@@ -13,14 +13,6 @@ export default class extends Controller {
     const newVal = Number(((val - min) * 100) / (max - min));
     this.bubbleTarget.innerHTML = val;
 
-    // Sorta magic numbers based on size of the native UI thumb
     this.bubbleTarget.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
   }
 }
-  // const range = wrap.querySelector(".range");
-  // const bubble = wrap.querySelector(".bubble");
-
-  // range.addEventListener("input", () => {
-  //   setBubble(range, bubble);
-  // });
-  // setBubble(range, bubble);
