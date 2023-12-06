@@ -34,7 +34,12 @@ class PagesController < ApplicationController
     user.important_addresses << params[:important_addresses] unless params[:important_addresses] == ""
     user.important_addresses.flatten
     user.save
+    @new_address = params[:important_addresses]
     # redirect_to searches_path
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def preferences_params
