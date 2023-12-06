@@ -69,6 +69,24 @@
   padding: 0;
 }
 
+.marker {
+  font-size: 2.8em;
+  color: $gray;
+  padding: 0;
+  text-shadow: 0 0 5px rgba(230, 230, 230, 0.2);
+}
+
+.marker-home {
+  color: $white;
+}
+
+.marker-pro {
+  font-size: 2.8em;
+  color: $green;
+  padding: 0;
+  text-shadow: 0 0 5px rgba(48,195,80,0.5);
+}
+
 .card-product {
   display: flex;
   justify-content: space-between;
