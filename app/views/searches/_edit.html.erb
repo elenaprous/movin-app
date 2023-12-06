@@ -1,26 +1,34 @@
 <div class="form_block pt-0" data-controller="insert-in-list">
-    <div class="form_question mb-5 mt-0">
-      <h2>Your choices</h2>
-      <div class="index-title">
-      <h6>Add a relevant address to you, like your work or a family member's house.</h6>
-      </div>
-      <%= form_tag(preferences_edit_path(current_user.id), method: :patch,
-          data: {insert_in_list_target: "form", action: "submit->insert-in-list#send"}) do -%>
-      <div data-controller="address-autocomplete" data-address-autocomplete-api-key-value="<%=ENV['MAPBOX_API_KEY']%>">
-        <%= search_field_tag 'important_addresses', nil,
-          class: 'd-none',
-          placeholder: "Give us an important address",
-          data: { address_autocomplete_target: "address" }
-        %>
-      </div>
-      <div><h4>Important addresses: </h4>
-      <ul data-insert-in-list-target="items">
-        <% current_user.important_addresses.each do |address| %>
-        <li><i data-feather="map-pin"></i><%= address %></li>
-        <% end %>
-      </ul>
-      </div>
-    </div>
+  <div class="container">
+      <div class="form_question mb-5 mt-0">
+        <div class="row mb-5">
+          <h2>Your choices</h2>
+        </div>
+        <div class="d-flex justify-content-between">
+          <div>
+            <div class="index-title">
+            <h6>Add a relevant address to you, like your work or a family member's house.</h6>
+            </div>
+            <%= form_tag(preferences_edit_path(current_user.id), method: :patch,
+                data: {insert_in_list_target: "form", action: "submit->insert-in-list#send"}) do -%>
+            <div data-controller="address-autocomplete" data-address-autocomplete-api-key-value="<%=ENV['MAPBOX_API_KEY']%>">
+              <%= search_field_tag 'important_addresses', nil,
+                class: 'd-none',
+                placeholder: "Give us an important address",
+                data: { address_autocomplete_target: "address" }
+              %>
+            </div>
+          </div>
+          <div class="col-5">
+          <h6 class="text-center small-title mb-3">Important addresses:</h6>
+            <ul class="bullets" data-insert-in-list-target="items">
+              <% current_user.important_addresses.each do |address| %>
+              <li><i data-feather="map-pin" class="pins"></i><%= address %></li>
+              <% end %>
+            </ul>
+            </div>
+        </div>
+  </div>
       <div class="form_question">
         <h5>Do you need these nearby?</h5>
         <p>Rate on a scale of 1 to 5.</p>
