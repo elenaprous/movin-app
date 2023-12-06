@@ -1,8 +1,27 @@
-<div class="details-modal">
-  <div class="details-header">
-    <div class="details-title">
-      <h3>Schools nearby</h3>
-      <h4><%= @search.location.address %></h4>
+<div class="details-mask">
+  <div class="details-modal">
+    <div class="details-header">
+      <div class="details-title">
+        <h3>Schools nearby</h3>
+        <h5><%= @search.location.address %></h5>
+      </div>
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+    <div class="poi-list">
+      <div class="poi-card">
+        <i class="fa-solid fa-pencil"></i>
+        <div class="poi-info">
+          <h5>Oya's Childcare</h5>
+          <p>IJsbaanpad 8, 1076 CV Amsterdam</p>
+        </div>
+      </div>
+      <div class="poi-card">
+        <i class="fa-solid fa-pencil"></i>
+        <div class="poi-info">
+          <h5>Examencentrum Amsterdam</h5>
+          <p>Amstelveenseweg 390, 1076 CT Amsterdam</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
