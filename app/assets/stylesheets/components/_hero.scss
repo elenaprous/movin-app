@@ -23,17 +23,6 @@
   margin-top: 28px;
 }
 
-.mapboxgl-ctrl-geocoder--input {
-  width: 560px;
-  background-color: rgba($color: $white, $alpha: 0.2);
-  border: 1px solid rgba($color: $light-gray, $alpha: 0.4);
-  border-radius: 2px;
-  font-size: 16px;
-  padding: 6px 10px 6px 10px;
-  &::placeholder {
-    color: $white;
-  }
-}
 
 .mapboxgl-ctrl-geocoder--button {
   display: none;
@@ -47,15 +36,31 @@
   display: none;
 }
 
+.hero_form .mapboxgl-ctrl-geocoder--input {
+  width: 560px;
+  background-color: rgba($color: $white, $alpha: 0.2);
+  border: 1px solid rgba($color: $white, $alpha: 0.8);
+  // border: 1px solid rgb(0, 0, 0) !important;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 6px 10px 6px 10px;
+  &::placeholder {
+    color: $white;
+  }
+}
+
 .suggestions-wrapper {
   width: 560px;
-  background-color: rgba($color: $white, $alpha: 0.3);
-  border-radius: 2px;
+  border-radius: 4px !important;
+  background-color: rgba($color: $white, $alpha: 1);
+  // border-bottom: 1px solid #c5c5c5 !important;
+  // border-radius: 2px;
   font-size: 18px;
   color: rgba($color: $dark-gray, $alpha: 0.8) !important;
   border-top-right-radius: 15px;
   margin-bottom: 10px !important;
-  border-radius: 4px !important;
+  overflow-y: auto;
+  position: absolute;
 }
 
 .suggestions {
@@ -68,7 +73,6 @@
   display: flex;
   gap: 8px;
   background-color: rgba($color: $white, $alpha: 0.9) !important;
-  // border-radius: 4px !important;
 }
 
 .mapboxgl-ctrl-geocoder--suggestion-title {
@@ -95,11 +99,12 @@
 
 .hero_form_button {
   background-color: rgba($color: $white, $alpha: 0.3);
-  border: 1px solid rgba($color: $light-gray, $alpha: 0.4);
+  border: 1px solid rgba($color: $light-gray, $alpha: 0.5);
   border-radius: 2px;
   font-size: 16px;
   color: $white;
   padding: 4px 12px 4px 12px;
   margin-left: 8px;
   height: 34px;
+  margin-top: 3px;
 }

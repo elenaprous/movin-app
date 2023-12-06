@@ -4,7 +4,7 @@
     <h3 class="cursor search-highlight" data-action="click->dashboard#toggleSearches" data-dashboard-target="searchesTrigger">Searches</h3>
     <h3 class="cursor" data-action="click->dashboard#togglePreferences" data-dashboard-target="preferencesTrigger">Preferences</h3>
   </div>
-  <div data-dashboard-target="searches"><%= render "index" %></div>
+  <div class="index" data-dashboard-target="searches"><%= render "index" %></div>
   <div data-dashboard-target="preferences" class="d-none"><%= render "edit" %></div>
   <%= render "layouts/footer" %>
 </div>
