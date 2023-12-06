@@ -1,0 +1,14 @@
+<div class="<%= @search.supermarkets_score > 3 ? "card-score pro row" : @search.supermarkets_score <= 3 && @search.supermarkets_score > 0 ? "card-score row" : "card-score con row"%>" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <i class="fa-solid fa-cart-shopping"></i>
+  <div>
+    <h2>Supermarkets</h2>
+    <% if @search.supermarkets_score > 3 %>
+      <p>Great! There are grocery stores nearby.</p>
+    <% elsif @search.supermarkets_score <= 3 && @search.supermarkets_score > 0 %>
+      <p>There are not many grocery stores.</p>
+    <% else %>
+      <p>No grocery stores around.</p>
+    <% end %>
+  </div>
+</div>
+<%= render "details", category: "market" %>

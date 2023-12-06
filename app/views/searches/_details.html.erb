@@ -1,10 +1,10 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content">
       <div class="details-modal">
         <div class="details-header">
           <div class="details-title">
-            <h3>Schools nearby</h3>
+            <h3><%= "#{category.capitalize}s" %></h3>
             <h5><%= @search.location.address %></h5>
           </div>
           <i class="fa-solid fa-xmark" data-bs-dismiss="modal"></i>

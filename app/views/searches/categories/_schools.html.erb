@@ -1,0 +1,15 @@
+<div class="<%= @search.schools_score > 3 ? "card-score pro row" : @search.schools_score <= 3 && @search.schools_score > 0 ? "card-score row" : "card-score con row"%>" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+  <i class="fa-solid fa-pencil"></i>
+  <div>
+    <h2>Schools</h2>
+    <% if @search.schools_score > 3 %>
+      <p>Many schools nearby, how lucky!</p>
+    <% elsif @search.schools_score <= 3 && @search.schools_score > 0 %>
+      <p>There are a couple schools around here.</p>
+    <% else %>
+      <p>No schools in this neighborhood.</p>
+    <% end %>
+  </div>
+</div>
+<% category = "school" %>
+<%= render "details", category: category %>

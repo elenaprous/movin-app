@@ -12,87 +12,13 @@
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
     <div class="cards">
-      <div class="<%= @search.restaurants_score > 3 ? "card-score pro row" : @search.restaurants_score <= 3 && @search.restaurants_score > 0 ? "card-score row" : "card-score con row"%>">
-        <i class="fa-solid fa-utensils"></i>
-        <div>
-          <h2>Restaurants</h2>
-          <% if @search.restaurants_score > 3 %>
-            <p>There are lots of restaurants around this place!</p>
-          <% elsif @search.restaurants_score <= 3 && @search.restaurants_score > 0 %>
-            <p>There are some restaurants around.</p>
-          <% else %>
-            <p>There are no restaurants in the area.</p>
-          <% end %>
-        </div>
-      </div>
-      <div class="<%= @search.supermarkets_score > 3 ? "card-score pro row" : @search.supermarkets_score <= 3 && @search.supermarkets_score > 0 ? "card-score row" : "card-score con row"%>">
-        <i class="fa-solid fa-cart-shopping"></i>
-        <div>
-          <h2>Supermarkets</h2>
-          <% if @search.supermarkets_score > 3 %>
-            <p>Great! There are grocery stores nearby.</p>
-          <% elsif @search.supermarkets_score <= 3 && @search.supermarkets_score > 0 %>
-            <p>There are not many grocery stores.</p>
-          <% else %>
-            <p>No grocery stores around.</p>
-          <% end %>
-        </div>
-      </div>
-      <div class="<%= @search.schools_score > 3 ? "card-score pro row" : @search.schools_score <= 3 && @search.schools_score > 0 ? "card-score row" : "card-score con row"%>" data-bs-toggle="modal" data-bs-target="#exampleModal" >
-        <i class="fa-solid fa-pencil"></i>
-        <div>
-          <h2>Schools</h2>
-          <% if @search.schools_score > 3 %>
-            <p>Many schools nearby, how lucky!</p>
-          <% elsif @search.schools_score <= 3 && @search.schools_score > 0 %>
-            <p>There are a couple schools around here.</p>
-          <% else %>
-            <p>No schools in this neighborhood.</p>
-          <% end %>
-        </div>
-      </div>
-      <%= render "details", category: "school" %>
-      <div class="<%= @search.transportation_score > 3 ? "card-score pro row" : @search.transportation_score <= 3 && @search.transportation_score > 0 ? "card-score row" : "card-score con row"%>">
-        <i class="fa-solid fa-train-subway"></i>
-        <div>
-          <h2>Public transportation</h2>
-          <% if @search.transportation_score > 3 %>
-            <p>Lots of options, you can get where you need!</p>
-          <% elsif @search.transportation_score <= 3 && @search.transportation_score > 0 %>
-            <p>There are ways to get around.</p>
-          <% else %>
-            <p>No public transport close by.</p>
-          <% end %>
-        </div>
-      </div>
-      <div class="<%= @search.gyms_score > 3 ? "card-score pro row" : @search.gyms_score <= 3 && @search.gyms_score > 0 ? "card-score row" : "card-score con row"%>">
-        <i class="fa-solid fa-dumbbell"></i>
-        <div>
-          <h2>Gyms</h2>
-          <% if @search.gyms_score > 3 %>
-            <p>Many options for fitness!</p>
-          <% elsif @search.gyms_score <= 3 && @search.gyms_score > 0 %>
-            <p>There are ways to stay fit around here.</p>
-          <% else %>
-            <p>No gyms in this area.</p>
-          <% end %>
-        </div>
-      </div>
-      <div class="<%= @search.nightlife_score > 3 ? "card-score pro row" : @search.nightlife_score <= 3 && @search.nightlife_score > 0 ? "card-score row" : "card-score con row"%>">
-        <i class="fa-solid fa-moon"></i>
-        <div>
-          <h2>Nightlife</h2>
-          <% if @search.nightlife_score > 3 %>
-            <p>Lots of fun options here!</p>
-          <% elsif @search.nightlife_score <= 3 && @search.nightlife_score > 0 %>
-            <p>There are a couple options nearby.</p>
-          <% else %>
-            <p>Not a busy nightlife around here.</p>
-          <% end %>
-        </div>
-      </div>
+      <%= render "searches/categories/restaurants" %>
+      <%= render "searches/categories/supermarkets" %>
+      <%= render "searches/categories/schools" %>
+      <%= render "searches/categories/transportation" %>
+      <%= render "searches/categories/gyms" %>
+      <%= render "searches/categories/nightlife" %>
     </div>
   </div>
 </div>
-<%= render "details", category: "school" %>
 <%= render "layouts/footer" %>
