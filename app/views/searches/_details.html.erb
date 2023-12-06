@@ -1,9 +1,11 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="<%= category %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content">
       <div class="details-modal">
         <div class="details-header">
           <div class="details-title">
+            <% category = "fitness center" if category.include?("fitness") %>
+            <% category = "public transport stop" if category.include?("public") %>
             <h3><%= "#{category.capitalize}s" %></h3>
             <h5><%= @search.location.address %></h5>
           </div>

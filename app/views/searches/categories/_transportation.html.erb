@@ -1,4 +1,4 @@
-<div class="<%= @search.transportation_score > 3 ? "card-score pro row" : @search.transportation_score <= 3 && @search.transportation_score > 0 ? "card-score row" : "card-score con row"%>" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<div class="<%= @search.transportation_score > 3 ? "card-score pro row" : @search.transportation_score <= 3 && @search.transportation_score > 0 ? "card-score row" : "card-score con row"%>" data-bs-toggle="modal" data-bs-target="#public">
   <i class="fa-solid fa-train-subway"></i>
   <div>
     <h2>Public transportation</h2>
@@ -11,4 +11,4 @@
     <% end %>
   </div>
 </div>
-<%= render "details", category: "public transport stop" %>
+<%= render "details", category: "public" %>

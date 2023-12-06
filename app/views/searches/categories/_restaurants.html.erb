@@ -1,4 +1,4 @@
-<div class="<%= @search.restaurants_score > 3 ? "card-score pro row" : @search.restaurants_score <= 3 && @search.restaurants_score > 0 ? "card-score row" : "card-score con row"%>" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<div class="<%= @search.restaurants_score > 3 ? "card-score pro row" : @search.restaurants_score <= 3 && @search.restaurants_score > 0 ? "card-score row" : "card-score con row"%>" data-bs-toggle="modal" data-bs-target="#restaurant">
   <i class="fa-solid fa-utensils"></i>
   <div>
     <h2>Restaurants</h2>
@@ -11,5 +11,4 @@
     <% end %>
   </div>
 </div>
-<% category = "restaurant" %>
-<%= render "details", category: category %>
+<%= render "details", category: "restaurant" %>

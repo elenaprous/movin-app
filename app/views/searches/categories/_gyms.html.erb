@@ -1,4 +1,4 @@
-<div class="<%= @search.gyms_score > 3 ? "card-score pro row" : @search.gyms_score <= 3 && @search.gyms_score > 0 ? "card-score row" : "card-score con row"%>" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<div class="<%= @search.gyms_score > 3 ? "card-score pro row" : @search.gyms_score <= 3 && @search.gyms_score > 0 ? "card-score row" : "card-score con row"%>" data-bs-toggle="modal" data-bs-target="#fitness">
   <i class="fa-solid fa-dumbbell"></i>
   <div>
     <h2>Gyms</h2>
@@ -11,4 +11,4 @@
     <% end %>
   </div>
 </div>
-<%= render "details", category: "fitness club center" %>
+<%= render "details", category: "fitness" %>
