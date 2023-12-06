@@ -43,6 +43,6 @@ class PagesController < ApplicationController
   end
 
   def preferences_params
-    params.permit(:supermarkets_score, :schools_score, :restaurants_score, :transportation_score)
+    params.permit(:supermarkets_score, :schools_score, :restaurants_score, :transportation_score, :nightlife_score, :gyms_score)
   end
 end
