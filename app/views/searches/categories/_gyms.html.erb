@@ -1,0 +1,14 @@
+<div class="<%= @search.gyms_score > 3 ? "card-score pro row" : @search.gyms_score <= 3 && @search.gyms_score > 0 ? "card-score row" : "card-score con row"%>" data-bs-toggle="modal" data-bs-target="#fitness">
+  <i class="fa-solid fa-dumbbell"></i>
+  <div>
+    <h2>Gyms</h2>
+    <% if @search.gyms_score > 3 %>
+      <p>Many options for fitness!</p>
+    <% elsif @search.gyms_score <= 3 && @search.gyms_score > 0 %>
+      <p>There are ways to stay fit around here.</p>
+    <% else %>
+      <p>No gyms in this area.</p>
+    <% end %>
+  </div>
+</div>
+<%= render "details", category: "fitness" %>

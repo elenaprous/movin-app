@@ -1,0 +1,14 @@
+<div class="<%= @search.restaurants_score > 3 ? "card-score pro row" : @search.restaurants_score <= 3 && @search.restaurants_score > 0 ? "card-score row" : "card-score con row"%>" data-bs-toggle="modal" data-bs-target="#restaurant">
+  <i class="fa-solid fa-utensils"></i>
+  <div>
+    <h2>Restaurants</h2>
+    <% if @search.restaurants_score > 3 %>
+      <p>There are lots of restaurants around this place!</p>
+    <% elsif @search.restaurants_score <= 3 && @search.restaurants_score > 0 %>
+      <p>There are some restaurants around.</p>
+    <% else %>
+      <p>There are no restaurants in the area.</p>
+    <% end %>
+  </div>
+</div>
+<%= render "details", category: "restaurant" %>

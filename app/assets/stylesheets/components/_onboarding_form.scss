@@ -27,44 +27,45 @@
   padding: 5px 15px 5px 15px;
 }
 
-.mapboxgl-ctrl-geocoder--input {
-  border-radius: 2px !important;
-  width: 100%;
+.form_block .mapboxgl-ctrl-geocoder--input {
+  border-radius: 4px !important;
+  width: 560px;
   color: $black;
   background-color: transparent;
-  // border: 1px solid rgba(197, 197, 197, 1) !important;
+  border: 1px solid rgba($color: $dark-gray, $alpha: 0.4);
   // border-bottom: 0px solid rgba(197, 197, 197, 1) !important;
-  border-left: 1px solid rgba(197, 197, 197, 1) !important;
-  border-right: 1px solid rgba(197, 197, 197, 1) !important;
-  border-top: 1px solid rgba(197, 197, 197, 1) !important;
-  font-size: 18px;
-  padding: 5px 15px -5px 15px;
-  margin-top: 5px;
-  // margin-bottom: 15px;
+  // border-left: 1px solid rgba(197, 197, 197, 1) !important;
+  // border-right: 1px solid rgba(197, 197, 197, 1) !important;
+  // border-top: 1px solid rgba(197, 197, 197, 1) !important;
+  font-size: 16px;
+  padding: 6px 10px 6px 10px;
+  // margin-top: 5px;
+  // // margin-bottom: 15px;
 }
 
 .suggestions-wrapper {
-  background-color: var(--colorBackground);
-  border: var(--border);
-  border-radius: var(--borderRadius);
-  box-shadow: var(--boxShadow);
-  color: var(--colorText);
-  font-family: var(--fontFamily);
-  font-size: var(--unit);
-  font-weight: var(--fontWeight);
-  line-height: var(--lineHeight);
-  min-width: var(--minWidth);
-  overflow-y: auto;
-  position: absolute;
-  transform: translateZ(0px);
-  transition: visibility var(--duration);
-  width: var(--width);
-  z-index: 1000;
-  border: 1px solid #c5c5c5 !important;
-  // margin-top: 5px !important;
-  // border-bottom: 2px !important;
-  border-top: 1px !important;
-  color: rgba(0, 0, 0, 0.4) !important;
+  // background-color: var(--colorBackground);
+  // background-color: rgba($color: $white, $alpha: 0.3);
+  // border: var(--border);
+  // border-radius: var(--borderRadius);
+  // box-shadow: var(--boxShadow);
+  // color: var(--colorText);
+  // font-family: var(--fontFamily);
+  // font-size: var(--unit);
+  // font-weight: var(--fontWeight);
+  // line-height: var(--lineHeight);
+  // min-width: var(--minWidth);
+  // overflow-y: auto;
+  // position: absolute;
+  // transform: translateZ(0px);
+  // transition: visibility var(--duration);
+  // width: var(--width);
+  // z-index: 1000;
+  // border: 1px solid #c5c5c5 !important;
+  // // margin-top: 5px !important;
+  // // border-bottom: 2px !important;
+  // border-top: 1px !important;
+  // color: rgba(0, 0, 0, 0.4) !important;
 }
 
 .options_grid {
