@@ -8,12 +8,12 @@ class SearchesController < ApplicationController
         lng: place.lon,
         info_window_html: render_to_string(partial: "poi_window", locals: { place: place }),
         category: place.category,
-        marker_supermarkets: render_to_string(partial: "marker_supermarkets"),
-        marker_schools: render_to_string(partial: "marker_schools"),
-        marker_restaurants: render_to_string(partial: "marker_restaurants"),
-        marker_transportation: render_to_string(partial: "marker_transportation"),
-        marker_nightlife: render_to_string(partial: "marker_nightlife"),
-        marker_gyms: render_to_string(partial: "marker_gyms")
+        marker_supermarkets: render_to_string(partial: "searches/markers/marker_supermarkets"),
+        marker_schools: render_to_string(partial: "searches/markers/marker_schools"),
+        marker_restaurants: render_to_string(partial: "searches/markers/marker_restaurants"),
+        marker_transportation: render_to_string(partial: "searches/markers/marker_transportation"),
+        marker_nightlife: render_to_string(partial: "searches/markers/marker_nightlife"),
+        marker_gyms: render_to_string(partial: "searches/markers/marker_gyms")
       }
     end
     @markers << {
@@ -21,7 +21,7 @@ class SearchesController < ApplicationController
       lng: @search.location.longitude,
       info_window_html: render_to_string(partial: "info_window", locals: { location: location }),
       category: "address",
-      marker_house: render_to_string(partial: "marker_house")
+      marker_house: render_to_string(partial: "searches/markers/marker_house")
     }
   end
 

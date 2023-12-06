@@ -1,0 +1,34 @@
+<div class="modal fade" id="<%= category %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="details-modal">
+        <div class="details-header">
+          <div class="details-title">
+            <% category = "fitness center" if category.include?("fitness") %>
+            <% category = "public transport stop" if category.include?("public") %>
+            <h3><%= "#{category.capitalize}s" %></h3>
+            <h5><%= @search.location.address %></h5>
+          </div>
+          <i class="fa-solid fa-xmark" data-bs-dismiss="modal"></i>
+        </div>
+        <div class="poi-list">
+          <% @search.location.pois.each do |place| %>
+            <% if place.category.include?(category) %>
+              <div class="poi-card">
+                <i class="fa-solid fa-pencil"></i>
+                  <div class="poi-info">
+                    <div class="poi-infomain">
+                      <h5><%= place.name %></h5>
+                      <p><%= place.address %></p>
+                    </div>
+                    <% categories = eval(place.category) %>
+                    <p><%= categories.first.capitalize %></p>
+                  </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
