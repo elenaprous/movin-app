@@ -44,37 +44,41 @@
             </div>
             <div class="option">
               <p>Schools</p>
-              <%# 1 %>
-              <%= range_field_tag 'schools_score', options_for_select(1..5), as: :range, type:'range', class:'form_label form-range slider_rating', min:'1', max:'5', step:'1' %>
-              <%# 5 %>
+              <div class="range-wrapper" data-controller="slider-value">
+              <%= range_field_tag 'schools_score', options_for_select(1..5), as: :range, type:'range', class:'form_label form-range slider_rating', min:'1', max:'5', step:'1', data:{slider_value_target:"range", action:"input->slider-value#setBubble"} %>
+              <output class="bubble" data-slider-value-target="bubble"></output>
             </div>
+          </div>
           </div>
           <div class="options_grid">
             <div class="option">
               <p>Restaurants</p>
-              <%# 1 %>
-              <%= range_field_tag 'restaurants_score', options_for_select(1..5), as: :range, type:'range', class:'form_label form-range slider_rating', min:'1', max:'5', step:'1' %>
-              <%# 5 %>
+              <div class="range-wrapper" data-controller="slider-value">
+              <%= range_field_tag 'restaurants_score', options_for_select(1..5), as: :range, type:'range', class:'form_label form-range slider_rating', min:'1', max:'5', step:'1', data:{slider_value_target:"range", action:"input->slider-value#setBubble"} %>
+              <output class="bubble" data-slider-value-target="bubble"></output>
+            </div>
             </div>
             <div class="option">
               <p>Public transport</p>
-              <%# 1 %>
-              <%= range_field_tag 'transportation_score', options_for_select(1..5), as: :range, type:'range', class:'form_label form-range slider_rating', min:'1', max:'5', step:'1' %>
-              <%# 5 %>
+              <div class="range-wrapper" data-controller="slider-value">
+              <%= range_field_tag 'transportation_score', options_for_select(1..5), as: :range, type:'range', class:'form_label form-range slider_rating', min:'1', max:'5', step:'1', data:{slider_value_target:"range", action:"input->slider-value#setBubble"} %>
+              <output class="bubble" data-slider-value-target="bubble"></output>
             </div>
+          </div>
           </div>
           <div class="options_grid">
             <div class="option">
               <p>Nightlife</p>
-              <%# 1 %>
-              <%= range_field_tag 'nightlife_score', options_for_select(1..5), as: :range, type:'range', class:'form_label form-range slider_rating', min:'1', max:'5', step:'1' %>
-              <%# 5 %>
+              <div class="range-wrapper" data-controller="slider-value">
+              <%= range_field_tag 'nightlife_score', options_for_select(1..5), as: :range, type:'range', class:'form_label form-range slider_rating', min:'1', max:'5', step:'1', data:{slider_value_target:"range", action:"input->slider-value#setBubble"} %>
+              <output class="bubble" data-slider-value-target="bubble"></output>
+            </div>
             </div>
             <div class="option">
               <p>Gyms</p>
-              <%# 0 %>
-              <%= range_field_tag 'gyms_score', options_for_select(1..5), as: :range, type:'range', class:'form_label form-range slider_rating', min:'1', max:'5', step:'1' %>
-              <%# 5 %>
+              <div class="range-wrapper" data-controller="slider-value">
+              <%= range_field_tag 'gyms_score', options_for_select(1..5), as: :range, type:'range', class:'form_label form-range slider_rating', min:'1', max:'5', step:'1', data:{slider_value_target:"range", action:"input->slider-value#setBubble"} %>
+              <output class="bubble" data-slider-value-target="bubble"></output>
             </div>
           </div>
         </div>

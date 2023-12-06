@@ -1,10 +1,11 @@
 .bubble {
-  color: gray;
+  color: rgba($color: $dark-gray, $alpha: 0.5);
   position: absolute;
   transform: translateX(-50%);
-  bottom: 0px;
+  bottom: -6px;
 }
 .range-wrapper {
   position: relative;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+  // z-index: -1;
 }
