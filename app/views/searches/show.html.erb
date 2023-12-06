@@ -38,7 +38,7 @@
           <% end %>
         </div>
       </div>
-      <div class="<%= @search.schools_score > 3 ? "card-score pro row" : @search.schools_score <= 3 && @search.schools_score > 0 ? "card-score row" : "card-score con row"%>">
+      <div class="<%= @search.schools_score > 3 ? "card-score pro row" : @search.schools_score <= 3 && @search.schools_score > 0 ? "card-score row" : "card-score con row"%>" data-bs-toggle="modal" data-bs-target="#exampleModal" >
         <i class="fa-solid fa-pencil"></i>
         <div>
           <h2>Schools</h2>
@@ -51,6 +51,7 @@
           <% end %>
         </div>
       </div>
+      <%= render "details", category: "school" %>
       <div class="<%= @search.transportation_score > 3 ? "card-score pro row" : @search.transportation_score <= 3 && @search.transportation_score > 0 ? "card-score row" : "card-score con row"%>">
         <i class="fa-solid fa-train-subway"></i>
         <div>
@@ -93,5 +94,5 @@
     </div>
   </div>
 </div>
-<%= render "details" %>
+<%= render "details", category: "school" %>
 <%= render "layouts/footer" %>

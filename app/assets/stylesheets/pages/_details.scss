@@ -1,21 +1,16 @@
-.details-mask {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.3);
-}
+// .details-mask {
+//   position: fixed;
+//   left: 0;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   background-color: rgba(0, 0, 0, 0.3);
+// }
 
 .details-modal {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 1000px;
   padding: 32px;
   background-color: $white;
   border-radius: 4px;
