@@ -1,6 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
+    resource.important_addresses = [params[:user][:important_addresses]] if params[:user][:important_addresses]
 
     resource.save
     yield resource if block_given?
