@@ -25,7 +25,7 @@ user = User.create!(email: "admin@gmail.com", password: "123456", first_name: "P
 Location.all.each do |location|
   location.location_scores!
   search = Search.create!(user_id: user.id, location_id: location.id)
-  search.compute_score!
+  search.compute_score_and_rank
 end
 
 p "All done!"
