@@ -1,5 +1,7 @@
 <div class="<%= @search.gyms_score > 3 ? "card-score pro row" : @search.gyms_score <= 3 && @search.gyms_score > -4 ? "card-score row" : "card-score con row"%>" data-bs-toggle="modal" data-bs-target="#fitness">
-  <i class="fa-solid fa-dumbbell"></i>
+  <div class="icon-card">
+     <i class="fa-solid fa-dumbbell"></i>
+  </div>
   <div>
     <h2>Gyms</h2>
     <% if @search.gyms_score > 3 %>

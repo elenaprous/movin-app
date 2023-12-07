@@ -1,5 +1,7 @@
 <div class="<%= @search.supermarkets_score > 3 ? "card-score pro row" : @search.supermarkets_score <= 3 && @search.supermarkets_score > -4 ? "card-score row" : "card-score con row"%>" data-bs-toggle="modal" data-bs-target="#market">
-  <i class="fa-solid fa-cart-shopping"></i>
+  <div class="icon-card">
+    <i class="fa-solid fa-cart-shopping"></i>
+  </div>
   <div>
     <h2>Supermarkets</h2>
     <% if @search.supermarkets_score > 3 %>
