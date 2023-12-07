@@ -12,6 +12,7 @@
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
     <div class="cards">
+      <%= render "searches/categories/important_address" %>
       <%= render "searches/categories/restaurants" %>
       <%= render "searches/categories/supermarkets" %>
       <%= render "searches/categories/schools" %>

@@ -1,0 +1,18 @@
+<div class="<%= @search.distance_score == 1 ? "card-score pro row" : @search.distance_score == 0 ? "card-score row" : "card-score con row"%>">
+  <div class="icon-card">
+    <i class="fa-solid fa-location-dot"></i>
+  </div>
+  <div>
+    <% if @search.distance_score == 1 %>
+      <h2>Nearby important address</h2>
+      <p>You are only <%= @search.distance %>m away from <strong><%= @search.user.important_addresses.first %></strong>.</p>
+    <% elsif @search.distance_score == 0 %>
+      <h2>Not too far from important address</h2>
+      <p>You are <%= @search.distance %>m away from <strong><%= @search.user.important_addresses.first %></strong>.</p>
+    <% else %>
+      <h2>Far from important address</h2>
+      <p>You are <%= @search.distance %>m away from <%= @search.user.important_addresses.first %>.</p>
+    <% end %>
+  </div>
+</div>
+<%= render "details", category: "public" %>
