@@ -10,7 +10,7 @@ class RegistrationsController < Devise::RegistrationsController
         sign_up(resource_name, resource)
         if session[:location_id]
           @search = Search.create!(user_id: resource.id, location_id: session[:location_id])
-          @search.compute_score!
+          @search.compute_score_and_rank
           redirect_to search_path(@search)
         else
           respond_with resource, location: after_sign_up_path_for(resource)
