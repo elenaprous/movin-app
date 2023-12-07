@@ -1,10 +1,10 @@
-<div class="<%= @search.transportation_score > 3 ? "card-score pro row" : @search.transportation_score <= 3 && @search.transportation_score > 0 ? "card-score row" : "card-score con row"%>" data-bs-toggle="modal" data-bs-target="#public">
+<div class="<%= @search.transportation_score > 3 ? "card-score pro row" : @search.transportation_score <= 3 && @search.transportation_score > -4 ? "card-score row" : "card-score con row"%>" data-bs-toggle="modal" data-bs-target="#public">
   <i class="fa-solid fa-train-subway"></i>
   <div>
     <h2>Public transportation</h2>
     <% if @search.transportation_score > 3 %>
       <p>Lots of options, you can get where you need!</p>
-    <% elsif @search.transportation_score <= 3 && @search.transportation_score > 0 %>
+    <% elsif @search.transportation_score <= 3 && @search.transportation_score > -4 %>
       <p>There are ways to get around.</p>
     <% else %>
       <p>No public transport close by.</p>
