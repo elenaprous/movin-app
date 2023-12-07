@@ -10,7 +10,7 @@ class PagesController < ApplicationController
         location.location_scores!
       end
       @search = Search.create!(user_id: current_user.id, location_id: location.id)
-      @search.compute_score!
+      @search.compute_score_and_rank
       redirect_to search_path(@search)
     end
   end
