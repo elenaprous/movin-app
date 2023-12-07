@@ -16,8 +16,9 @@ export default class extends Controller {
       // Regular styling
       // style: "mapbox://styles/mapbox/dark-v11",
       // style: "mapbox://styles/tobiasmedia/clpmo00qw00z601po1zksfm27",
-      style: "mapbox://styles/tobiasmedia/clptm0epe01c701p95jck0q8s",
+      // style: "mapbox://styles/tobiasmedia/clptm0epe01c701p95jck0q8s",
       // style: "mapbox://styles/tobiasmedia/clptw5a0501cu01o0205ebs7y",
+      style: "mapbox://styles/tobiasmedia/clptviyze01d601p9d2gbddx0",
     });
 
     this.#addMarkersToMap();
