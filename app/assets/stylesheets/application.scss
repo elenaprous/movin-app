@@ -35,14 +35,3 @@ body {
 .form-control:focus {
   color: $black;
 }
-
-
-
-
-
-input[type='range'] {
-  z-index: 2;
-}
-input[type='range']::-webkit-slider-thumb {
-  z-index: 2;
-}

@@ -11,7 +11,7 @@ export default class extends Controller {
       accessToken: this.apiKeyValue,
       types: "country,region,place,postcode,locality,neighborhood,address",
       placeholder: "Give us an address",
-      limit: 7
+      limit: 4
     })
     this.geocoder.addTo(this.element)
     this.geocoder.on("result", event => this.setInputValue(event))
