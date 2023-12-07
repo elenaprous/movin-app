@@ -15,7 +15,7 @@ Location.create!(address: "Arie Biemondstraat 111, 1054 PD, Amsterdam")
 Location.create!(address: "Roetersstraat 170, 1018 WE, Amsterdam")
 Location.create!(address: "Dijksgracht 6, 1019 BS, Amsterdam")
 
-user = User.create!(email: "tobias@movin.today", password: "123456", first_name: "Tobias", last_name: "Groenland", supermarkets_score: 2, schools_score: 5, parks_score: 1, nightlife_score: 1, restaurants_score: 4, transportation_score: 2, gyms_score: 4, important_addresses: ["Burgerweeshuispad 241, 1076 GW Amsterdam", "Fred. Roeskestraat 96, 1076 ED Amsterdam"])
+user = User.create!(email: "tobias@movin.today", password: "123456", first_name: "Tobias", last_name: "Groenland", supermarkets_score: 2, schools_score: 5, parks_score: 1, nightlife_score: 1, restaurants_score: 4, transportation_score: 2, gyms_score: 4, important_addresses: ["Kanaalstraat 132 H, 1054 XN Amsterdam", "Fred. Roeskestraat 96, 1076 ED Amsterdam"])
 
 Location.all.each do |location|
   location.location_scores!

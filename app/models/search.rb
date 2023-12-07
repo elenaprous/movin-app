@@ -8,6 +8,12 @@ class Search < ApplicationRecord
     compute_distance!() if self.user.important_addresses.count.positive?
   end
 
+  def address_coordinates
+    user_important_address = self.user.important_addresses.first
+    user_address_geocoded  = Geocoder.search(user_important_address).first.coordinates
+    [user_address_geocoded[0], user_address_geocoded[1]]
+  end
+
   private
 
   ## REF https://developer.tomtom.com/routing-api/documentation/routing/calculate-route ##
