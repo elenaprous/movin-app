@@ -1,0 +1,5 @@
+<div class="map-info">
+  <% location = @search.user.important_addresses.first.split(", ") %>
+    <h3><%= location[0] %></h3>
+    <h4><%= location[1] %></h4>
+</div>

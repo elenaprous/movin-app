@@ -23,6 +23,13 @@ class SearchesController < ApplicationController
       category: "address",
       marker_house: render_to_string(partial: "searches/markers/marker_house")
     }
+    @markers << {
+      lat: @search.address_coordinates[0],
+      lng: @search.address_coordinates[1],
+      info_window_html: render_to_string(partial: "info_important", locals: { location: location }),
+      category: "important",
+      marker_important: render_to_string(partial: "searches/markers/marker_important")
+    }
   end
 
   def index

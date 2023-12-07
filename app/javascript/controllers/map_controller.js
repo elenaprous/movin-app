@@ -42,6 +42,8 @@ export default class extends Controller {
         customMarker.innerHTML = marker.marker_gyms
       } else if(marker.category == "address") {
         customMarker.innerHTML = marker.marker_house
+      } else if(marker.category == "important") {
+        customMarker.innerHTML = marker.marker_important
       } else {
         customMarker.innerHTML = marker.marker_supermarkets
       }
