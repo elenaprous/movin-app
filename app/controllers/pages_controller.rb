@@ -33,6 +33,7 @@ class PagesController < ApplicationController
     user.update(preferences_params)
     user.important_addresses << params[:important_addresses] unless params[:important_addresses] == ""
     user.important_addresses.flatten
+    @address_add = params[:important_addresses] != ""
     user.save
     @new_address = params[:important_addresses]
     # redirect_to searches_path
