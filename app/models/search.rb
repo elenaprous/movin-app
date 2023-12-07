@@ -57,7 +57,7 @@ class Search < ApplicationRecord
   def compute_score!
     columns = Search.columns
     .select { |col| col.name.include?("score") }
-    .reject { |col| col.name.include?("distance" )}
+    .reject { |col| col.name.include?("distance")}
 
     columns.each do |col|
       col = col.name
