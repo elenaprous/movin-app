@@ -28,7 +28,15 @@
                       <p><%= place.address %></p>
                     </div>
                     <% categories = eval(place.category) %>
-                    <p><%= categories.first.capitalize %></p>
+                    <% if categories.count > 1 %>
+                      <% if categories.first == ("school") || categories.first.include?("restaurant") || categories.first.include?("public") %>
+                        <p><%= categories[1].capitalize %></p>
+                      <% else %>
+                        <p><%= categories.first.capitalize %></p>
+                      <% end %>
+                    <% else %>
+                      <p><%= categories.first.capitalize %></p>
+                    <% end %>
                   </div>
               </div>
             <% end %>

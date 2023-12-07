@@ -5,23 +5,23 @@ class Location < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
-  def compute_score!
-    columns = Location.columns.select { |col| col.name.include?("score") }
-    columns.each do |col|
-      column = col.name
-      value = self.send(column)
-      if value.present?
-        if value >= 3
-          self.update(column => 1)
-        elsif value > 0 && value < 3
-          self.update(column => 0)
-        end
-      else
-        self.update(column => -1)
-      end
-    end
-    self.save!
-  end
+  # def compute_score!
+  #   columns = Location.columns.select { |col| col.name.include?("score") }
+  #   columns.each do |col|
+  #     column = col.name
+  #     value = self.send(column)
+  #     if value.present?
+  #       if value >= 3
+  #         self.update(column => 1)
+  #       elsif value >= 1 && value < 3
+  #         self.update(column => 0)
+  #       end
+  #     else
+  #       self.update(column => -1)
+  #     end
+  #   end
+  #   self.save!
+  # end
 
   def location_scores!
     places = HTTParty.get("https://api.tomtom.com/search/2/nearbySearch/.json\?key\=#{ENV["TOM_TOM_KEY"]}\&lat\=#{self.latitude}\&lon\=#{self.longitude}\&radius\=500\&limit\=100")["results"]
@@ -49,11 +49,12 @@ class Location < ApplicationRecord
     nightlifes.each { |nightlife| Poi.create!(location_id: self.id, address: nightlife["address"]["freeformAddress"], name: nightlife["poi"]["name"], category: nightlife["poi"]["categories"], lat: nightlife["position"]["lat"], lon: nightlife["position"]["lon"]) }
     gyms.each { |gym| Poi.create!(location_id: self.id, address: gym["address"]["freeformAddress"], name: gym["poi"]["name"], category: gym["poi"]["categories"], lat: gym["position"]["lat"], lon: gym["position"]["lon"]) }
 
-    self.supermarkets_score = supermarkets.count
-    self.schools_score = schools.count
-    self.restaurants_score = restaurants.count
-    self.transportation_score = transportations.count
-    self.compute_score!
+    self.supermarkets_score = supermarkets.count.zero? ? -1 : (supermarkets.count >= 3 ? 1 : 0)
+    self.schools_score = schools.count.zero? ? -1 : (schools.count >= 3 ? 1 : 0)
+    self.restaurants_score = restaurants.count.zero? ? -1 : (restaurants.count >= 3 ? 1 : 0)
+    self.transportation_score = transportations.count.zero? ? -1 : (transportations.count >= 3 ? 1 : 0)
+    self.nightlife_score = nightlifes.count.zero? ? -1 : (nightlifes.count >= 3 ? 1 : 0)
+    self.gyms_score = gyms.count.zero? ? -1 : (gyms.count >= 3 ? 1 : 0)
     self.save!
   end
 end

@@ -1,10 +1,10 @@
-<div class="<%= @search.nightlife_score > 3 ? "card-score pro row" : @search.nightlife_score <= 3 && @search.nightlife_score > 0 ? "card-score row" : "card-score con row"%>" data-bs-toggle="modal" data-bs-target="#nightlife">
+<div class="<%= @search.nightlife_score > 3 ? "card-score pro row" : @search.nightlife_score <= 3 && @search.nightlife_score > -4 ? "card-score row" : "card-score con row"%>" data-bs-toggle="modal" data-bs-target="#nightlife">
   <i class="fa-solid fa-moon"></i>
   <div>
     <h2>Nightlife</h2>
     <% if @search.nightlife_score > 3 %>
       <p>Lots of fun options here!</p>
-    <% elsif @search.nightlife_score <= 3 && @search.nightlife_score > 0 %>
+    <% elsif @search.nightlife_score <= 3 && @search.nightlife_score > -4 %>
       <p>There are a couple options nearby.</p>
     <% else %>
       <p>Not a busy nightlife around here.</p>
