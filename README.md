@@ -1,4 +1,4 @@
-![Cover](/MOVIN_Cover.png)
+![Cover](/app/assets/images/MOVIN_Cover.png)
 
 <div align="center">
   <h1 align="center">MOVIN</h1>
